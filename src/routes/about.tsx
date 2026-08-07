@@ -23,7 +23,7 @@ export const Route = createFileRoute("/about")({
 
 const values = [
   { icon: HeartHandshake, title: "Patients first", text: "Every recommendation must be the one we would give our own family." },
-  { icon: Eye, title: "Radical transparency", text: "Fixed quotes, named doctors, honest expectations about results." },
+  { icon: Eye, title: "Radical transparency", text: "Named doctors, honest expectations and clear clinical planning." },
   { icon: Target, title: "Clinical excellence", text: "Accredited hospitals, audited outcomes, no compromise on safety." },
   { icon: Compass, title: "Effortless journeys", text: "Visas, transfers, hotels and interpreters handled end to end." },
 ];

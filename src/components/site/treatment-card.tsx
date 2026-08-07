@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { ArrowRight, Clock, Tag } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import type { Treatment } from "@/data/site";
 
 export function TreatmentCard({ treatment }: { treatment: Treatment }) {
@@ -27,18 +27,6 @@ export function TreatmentCard({ treatment }: { treatment: Treatment }) {
           <h3 className="font-display text-lg font-bold">{treatment.name}</h3>
         </div>
         <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{treatment.short}</p>
-        <dl className="mt-4 flex flex-wrap gap-x-5 gap-y-2 text-xs text-muted-foreground">
-          <div className="flex items-center gap-1.5">
-            <Tag className="h-3.5 w-3.5 text-accent" aria-hidden />
-            <dt className="sr-only">Price from</dt>
-            <dd className="font-semibold text-foreground">from {treatment.priceFrom}</dd>
-          </div>
-          <div className="flex items-center gap-1.5">
-            <Clock className="h-3.5 w-3.5 text-primary" aria-hidden />
-            <dt className="sr-only">Stay</dt>
-            <dd>{treatment.stay}</dd>
-          </div>
-        </dl>
         <Link
           to="/treatments/$slug"
           params={{ slug: treatment.slug }}

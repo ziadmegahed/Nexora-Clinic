@@ -6,7 +6,7 @@ import { Reveal } from "./reveal";
 
 export function CtaSection({
   title = "Ready to start your treatment journey?",
-  description = "Send us your medical details today and receive a fixed, itemised plan from an Turkish consultant within 24 hours.",
+  description = "Send us your medical details today and receive a tailored clinical plan from a Turkish consultant.",
 }: {
   title?: string;
   description?: string;

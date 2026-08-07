@@ -15,7 +15,7 @@ export const Route = createFileRoute("/treatments/")({
       { title: "Treatments in Turkey — Nexora Clinic" },
       { name: "description", content: "Hair transplant, dental implants, Hollywood smile, plastic surgery, bariatric surgery, IVF, orthopedics and dermatology in Turkey." },
       { property: "og:title", content: "Treatments in Turkey — Nexora Clinic" },
-      { property: "og:description", content: "Browse all treatments with indicative pricing, duration and required stay." },
+      { property: "og:description", content: "Browse all treatments with clinical details, recovery expectations and care pathways." },
       { property: "og:url", content: "/treatments" },
     ],
     links: [{ rel: "canonical", href: "/treatments" }],
@@ -42,7 +42,7 @@ function TreatmentsPage() {
       <PageHero
         eyebrow="Treatments"
         title="Find the right treatment for you"
-        description="Every treatment is delivered in an accredited hospital by a named consultant, with a fixed all-inclusive quote before you travel."
+        description="Every treatment is delivered in an accredited hospital by a named consultant, with a clear clinical plan before you travel."
         breadcrumb={[{ label: "Treatments" }]}
       />
 

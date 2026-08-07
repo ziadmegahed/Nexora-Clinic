@@ -71,7 +71,7 @@ function FaqPage() {
           </div>
         </div>
       </section>
-      <CtaSection title="Still have a question?" description="Send it to our patient team and get a straight answer, usually the same day." />
+      <CtaSection title="Still have a question?" description="Send it to our patient team and get a clear answer as soon as possible." />
     </>
   );
 }

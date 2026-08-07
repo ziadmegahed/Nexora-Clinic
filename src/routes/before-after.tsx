@@ -65,7 +65,6 @@ function BeforeAfterPage() {
                     <span>
                       <span className="text-xs font-semibold tracking-wide text-primary uppercase">{item.category}</span>
                       <span className="mt-1 block font-display text-base font-bold">{item.title}</span>
-                      <span className="text-xs text-muted-foreground">{item.months}</span>
                     </span>
                     <Dialog>
                       <DialogTrigger className="rounded-full border border-border px-3 py-1.5 text-xs font-medium transition-colors hover:bg-muted">

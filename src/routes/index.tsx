@@ -29,7 +29,6 @@ import { SectionHeading } from "@/components/site/section-heading";
 import { TreatmentCard } from "@/components/site/treatment-card";
 import { DoctorCard } from "@/components/site/doctor-card";
 import { TestimonialCard } from "@/components/site/testimonial-card";
-import { PricingCard } from "@/components/site/pricing-card";
 import { JourneyTimeline } from "@/components/site/journey-timeline";
 import { BeforeAfterSlider } from "@/components/site/before-after-slider";
 import { ConsultationForm } from "@/components/site/consultation-form";
@@ -38,7 +37,6 @@ import {
   doctors,
   features,
   hospitals,
-  packages,
   stats,
   testimonials,
   treatments,
@@ -149,7 +147,7 @@ function HomePage() {
           <SectionHeading
             eyebrow="Popular treatments"
             title="Treatments international patients travel to Turkey for"
-            description="Every plan is quoted as a fixed, all-inclusive price covering your doctor, hospital, hotel and transfers."
+            description="Every plan is prepared with a fully itemised clinical pathway and support package."
           />
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {treatments.map((t, i) => (
@@ -250,7 +248,6 @@ function HomePage() {
                       {item.category}
                     </span>
                     <p className="mt-1 font-display text-base font-bold">{item.title}</p>
-                    <p className="text-xs text-muted-foreground">{item.months}</p>
                   </figcaption>
                 </figure>
               </Reveal>
@@ -291,7 +288,7 @@ function HomePage() {
             align="left"
             eyebrow="Free consultation"
             title="Tell us about your case — we'll do the rest"
-            description="Share a few details and receive a personalised treatment plan, doctor recommendation and fixed quote within 24 hours. Nothing to pay, nothing to commit to."
+            description="Share a few details and receive a tailored clinical plan and doctor recommendation. Nothing to pay, nothing to commit to."
             className="lg:sticky lg:top-32"
           />
           <Reveal>

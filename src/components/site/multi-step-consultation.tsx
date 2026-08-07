@@ -65,7 +65,7 @@ export function MultiStepConsultation() {
         <h2 className="mt-6 font-display text-2xl font-bold">Thank you, {values['name']?.split(" ")[0]}!</h2>
         <p className="mx-auto mt-3 max-w-md text-sm leading-relaxed text-muted-foreground">
           Your request has been received. A patient coordinator will contact you on{" "}
-          {values['contactMethod']} within 24 hours with your treatment plan and a fixed quote.
+          {values['contactMethod']} with your treatment plan and a personalised clinical recommendation.
         </p>
         <div className="mt-7 flex flex-wrap justify-center gap-3">
           <Button asChild className="rounded-full">
@@ -160,7 +160,7 @@ export function MultiStepConsultation() {
             </div>
             <div className="sm:col-span-2">
               <Label htmlFor="s-budget">Approximate budget (optional)</Label>
-              <Input id="s-budget" className="mt-2 rounded-xl" maxLength={40} placeholder="e.g. $2,000 – $4,000" value={values['budget'] ?? ""} onChange={(e) => set("budget", e.target.value)} />
+              <Input id="s-budget" className="mt-2 rounded-xl" maxLength={40} placeholder="e.g. 2,000 – 4,000" value={values['budget'] ?? ""} onChange={(e) => set("budget", e.target.value)} />
             </div>
           </>
         ) : null}

@@ -158,24 +158,10 @@ function TreatmentDetail() {
 
           <aside className="lg:sticky lg:top-32 lg:self-start">
             <div className="rounded-3xl border border-border bg-card p-6 shadow-soft">
-              <h2 className="font-display text-lg font-bold">Treatment summary</h2>
-              <dl className="mt-4 space-y-3 text-sm">
-                <div className="flex items-center gap-2">
-                  <Tag className="h-4 w-4 text-accent" aria-hidden />
-                  <dt className="text-muted-foreground">Price from</dt>
-                  <dd className="ml-auto font-semibold">{treatment.priceFrom}</dd>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Clock className="h-4 w-4 text-primary" aria-hidden />
-                  <dt className="text-muted-foreground">Duration</dt>
-                  <dd className="ml-auto font-semibold">{treatment.duration}</dd>
-                </div>
-                <div className="flex items-center gap-2">
-                  <MapPin className="h-4 w-4 text-primary" aria-hidden />
-                  <dt className="text-muted-foreground">Stay</dt>
-                  <dd className="ml-auto font-semibold">{treatment.stay}</dd>
-                </div>
-              </dl>
+              <h2 className="font-display text-lg font-bold">Need a personalised plan?</h2>
+              <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
+                This page explains the treatment approach, recovery and results. A free consultation confirms the right clinical plan for you.
+              </p>
               <Button asChild className="mt-6 w-full rounded-full font-semibold">
                 <Link to="/consultation">Get a Free Consultation</Link>
               </Button>

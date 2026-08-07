@@ -45,7 +45,7 @@ export function ConsultationForm({ compact = false }: { compact?: boolean }) {
         setSending(true);
         try {
           await sendConsultationSubmission(parsed.data);
-          toast.success("Request received — a patient coordinator will reply within 24 hours.");
+          toast.success("Request received — a patient coordinator will reply soon.");
           e.currentTarget.reset();
         } catch (error) {
           console.error(error);
@@ -59,7 +59,7 @@ export function ConsultationForm({ compact = false }: { compact?: boolean }) {
         <>
           <h2 className="font-display text-2xl font-bold">Request your free consultation</h2>
           <p className="mt-2 text-sm text-muted-foreground">
-            No obligation. A coordinator replies within 24 hours with a plan and fixed quote.
+            No obligation. A coordinator reviews your case and sends a personalised clinical plan.
           </p>
         </>
       ) : null}

@@ -1,29 +1,20 @@
-import { useState } from "react";
 import { Link } from "@tanstack/react-router";
-import { Clock, Facebook, Instagram, Linkedin, Mail, MapPin, MessageCircle, Phone, Youtube } from "lucide-react";
-import { toast } from "sonner";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
+import { Instagram, Mail, MapPin, MessageCircle, Phone, MessageSquareText } from "lucide-react";
 import { brand, treatments } from "@/data/site";
 
 const quickLinks = [
-  { to: "/about", label: "About Us" },
+  { to: "/about", label: "About Nexora" },
   { to: "/treatments", label: "Treatments" },
   { to: "/doctors", label: "Doctors" },
-  { to: "/before-after", label: "Before & After" },
+  { to: "/before-after", label: "Patient Results" },
   { to: "/faq", label: "FAQ" },
 ];
 
 const socials = [
-  { icon: Facebook, label: "Facebook", href: "#" },
   { icon: Instagram, label: "Instagram", href: "https://www.instagram.com/nexorahealth.care/?hl=en" },
-  { icon: Youtube, label: "YouTube", href: "#" },
-  { icon: Linkedin, label: "LinkedIn", href: "#" },
 ];
 
 export function Footer() {
-  const [email, setEmail] = useState("");
-
   return (
     <footer className="border-t border-border bg-surface">
       <div className="container-page grid gap-10 py-16 md:grid-cols-2 lg:grid-cols-4">
@@ -36,16 +27,14 @@ export function Footer() {
               N
             </span>
             <span className="leading-tight">
-              <span className="block font-display text-base font-bold">NEXORA CLINIC</span>
+              <span className="block font-display text-base font-bold">Nexora Healthcare</span>
               <span className="block text-[11px] tracking-[0.14em] text-muted-foreground uppercase">
-                {brand.tagline}
+                Nexora — Next Aurora
               </span>
             </span>
           </div>
           <p className="mt-5 text-sm leading-relaxed text-muted-foreground">
-            Nexora Clinic guides international patients through safe, affordable and expertly
-            delivered treatment in Turkey's accredited hospitals — from first message to final
-            follow-up.
+            Nexora Health coordinates treatment arrangements and patient support with doctors and hospitals in Türkiye. Medical assessment and treatment are provided by the treating healthcare professionals.
           </p>
           <div className="mt-5 flex gap-2">
             {socials.map(({ icon: Icon, label, href }) => (
@@ -97,10 +86,6 @@ export function Footer() {
           <h2 className="font-display text-sm font-bold tracking-[0.16em] uppercase">Contact</h2>
           <ul className="mt-5 space-y-3 text-sm text-muted-foreground">
             <li className="flex gap-2">
-              <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-primary" aria-hidden />
-              {brand.address}
-            </li>
-            <li className="flex gap-2">
               <Phone className="mt-0.5 h-4 w-4 shrink-0 text-primary" aria-hidden />
               <a href={`tel:${brand.phone}`} className="hover:text-primary">
                 {brand.phone}
@@ -118,48 +103,13 @@ export function Footer() {
                 WhatsApp {brand.whatsapp}
               </a>
             </li>
-            <li className="flex gap-2">
-              <Clock className="mt-0.5 h-4 w-4 shrink-0 text-primary" aria-hidden />
-              {brand.hours}
-            </li>
           </ul>
-
-          <form
-            className="mt-6"
-            onSubmit={(e) => {
-              e.preventDefault();
-              if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email.trim())) {
-                toast.error("Please enter a valid email address.");
-                return;
-              }
-              toast.success("Subscribed — patient guides are on the way.");
-              setEmail("");
-            }}
-          >
-            <label htmlFor="newsletter" className="text-sm font-medium text-foreground">
-              Patient newsletter
-            </label>
-            <div className="mt-2 flex gap-2">
-              <Input
-                id="newsletter"
-                type="email"
-                maxLength={255}
-                placeholder="you@email.com"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className="rounded-full bg-card"
-              />
-              <Button type="submit" className="rounded-full">
-                Join
-              </Button>
-            </div>
-          </form>
         </div>
       </div>
 
       <div className="border-t border-border">
         <div className="container-page flex flex-col gap-3 py-5 text-xs text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
-          <p>© {new Date().getFullYear()} Nexora Clinic. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Nexora Healthcare. All rights reserved.</p>
           <div className="flex gap-4">
             <Link to="/privacy" className="hover:text-primary">
               Privacy Policy

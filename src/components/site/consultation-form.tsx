@@ -140,7 +140,7 @@ export function ConsultationForm({ compact = false }: { compact?: boolean }) {
       </div>
 
       <Button type="submit" size="lg" disabled={sending} className="mt-6 w-full rounded-full font-semibold">
-        {sending ? "Sending…" : "Request Free Consultation"}
+        {sending ? "Sending…" : "Get a Free Medical Evaluation"}
       </Button>
       <p className="mt-3 text-center text-xs text-muted-foreground">
         Your details stay confidential and are used only to prepare your medical plan.

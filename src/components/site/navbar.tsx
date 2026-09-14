@@ -1,16 +1,16 @@
 import { useState } from "react";
 import { Link, useRouterState } from "@tanstack/react-router";
-import { Menu, MessageCircle, Phone, X } from "lucide-react";
+import { Mail, Menu, MessageCircle, Phone, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { brand } from "@/data/site";
 import { cn } from "@/lib/utils";
 
 const links = [
   { to: "/", label: "Home" },
-  { to: "/about", label: "About Us" },
+  { to: "/about", label: "About Nexora" },
   { to: "/treatments", label: "Treatments" },
   { to: "/doctors", label: "Doctors" },
-  { to: "/before-after", label: "Before & After" },
+  { to: "/before-after", label: "Patient Results" },
   { to: "/contact", label: "Contact Us" },
 ];
 
@@ -28,7 +28,9 @@ export function Navbar() {
               <Phone className="h-3.5 w-3.5" aria-hidden /> {brand.phone}
             </a>
             <span aria-hidden>|</span>
-            <span>{brand.hours}</span>
+            <a className="inline-flex items-center gap-1.5 hover:underline" href={`mailto:${brand.email}`}>
+              <Mail className="h-3.5 w-3.5" aria-hidden /> {brand.email}
+            </a>
           </div>
         </div>
       </div>

@@ -22,11 +22,9 @@ export const Route = createFileRoute("/contact")({
 
 function ContactPage() {
   const details = [
-    { icon: MapPin, label: "Office", value: brand.address },
     { icon: Phone, label: "Phone", value: brand.phone, href: `tel:${brand.phone}` },
     { icon: Mail, label: "Email", value: brand.email, href: `mailto:${brand.email}` },
     { icon: MessageCircle, label: "WhatsApp", value: brand.whatsapp, href: brand.whatsappUrl },
-    { icon: Clock, label: "Business hours", value: brand.hours },
   ];
 
   return (
@@ -62,15 +60,6 @@ function ContactPage() {
                   </li>
                 ))}
               </ul>
-            </Reveal>
-            <Reveal>
-              <div className="grid aspect-[4/3] place-items-center rounded-3xl border border-dashed border-border bg-surface text-center text-sm text-muted-foreground">
-                <span>
-                  <MapPin className="mx-auto mb-2 h-6 w-6 text-primary" aria-hidden />
-                  Map of our Istanbul office
-                  <span className="mt-1 block text-xs">Levent Business Towers, Büyükdere Caddesi</span>
-                </span>
-              </div>
             </Reveal>
           </div>
         </div>

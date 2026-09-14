@@ -20,10 +20,10 @@ function ConsultationPage() {
   return (
     <>
       <PageHero
-        eyebrow="Free consultation"
-        title="Get your personalised treatment plan"
-        description="It takes about two minutes. A coordinator and the relevant consultant review your case and provide a personalised clinical plan."
-        breadcrumb={[{ label: "Free Consultation" }]}
+        eyebrow="Evaluation request"
+        title="Request your personalised treatment evaluation"
+        description="It takes about two minutes. A coordinator reviews your case and arranges the next step with the relevant clinical team."
+        breadcrumb={[{ label: "Evaluation Request" }]}
       />
       <section className="section pt-0">
         <div className="container-page max-w-3xl">

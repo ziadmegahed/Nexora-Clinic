@@ -18,11 +18,24 @@ import bariatric from "@/assets/treatment-bariatric.jpg";
 import ivf from "@/assets/treatment-ivf.jpg";
 import ortho from "@/assets/treatment-ortho.jpg";
 import derm from "@/assets/treatment-derm.jpg";
+import Rhinoplasty from "@/assets/treatment-rhinoplasty.jpg";
+import Liposuction from "@/assets/treatment-liposuction.jpg";
+import TummyTuck from "@/assets/Tummy-Tuck.jpg";
+import BeforeRhinoplasty from "@/assets/before-rhinoplasty.jpg";
+import AfterRhinoplasty from "@/assets/after-rhinoplasty.jpg";
+import BeforeLiposuction from "@/assets/before-liposuction.jpg";
+import AfterLiposuction from "@/assets/after-liposuction.jpg";
+import beforeDental from "@/assets/before-smile.jpg";
+import afterDental from "@/assets/after-smile.jpg";
+import beforeLoss from "@/assets/before-loss.jpg";
+import afterLoss from "@/assets/after-loss.jpg";
 
 import doc1 from "@/assets/doctor-1.jpg";
 import doc2 from "@/assets/doctor-2.jpg";
 import doc3 from "@/assets/doctor-3.jpg";
 import doc4 from "@/assets/doctor-4.jpg";
+import doc5 from "@/assets/doctor-5.jpg";
+import doc6 from "@/assets/doctor-6.jpg";
 
 import baHairBefore from "@/assets/ba-hair-before.jpg";
 import baHairAfter from "@/assets/ba-hair-after.jpg";
@@ -32,24 +45,24 @@ import baWeightBefore from "@/assets/ba-weight-before.jpg";
 import baWeightAfter from "@/assets/ba-weight-after.jpg";
 
 export const brand = {
-  name: "Nexora Clinic",
+  name: "Nexora Healthcare",
   tagline: "Health • Beauty • Confidence",
-  email: "ziadmegahed074@gmail.com",
-  phone: "+20 101 249 6224",
-  whatsapp: "+20 101 249 6224",
-  whatsappUrl: "https://wa.me/201012496224",
+  email: "care@nexoraclinic.com",
+  phone: "+90 552 123 4567",
+  whatsapp: "+90 552 408 08 41",
+  whatsappUrl: "https://wa.me/905524080841",
   address: "Levent Business Towers, Büyükdere Caddesi, Istanbul, Turkey",
   hours: "Mon – Sat, 9:00 – 19:00 (TRT) • Patient line open 24/7",
 };
 
 export const treatmentCategories = [
-  "Hair",
-  "Dental",
-  "Plastic Surgery",
-  "Bariatric",
-  "Dermatology",
-  "IVF",
-  "Orthopedics",
+  "Rhinoplasty",
+  "Liposuction",
+  "Tummy Tuck",
+  "Breast Augmentation",
+  "Hair Transplant",
+  "Gastric Sleeve",
+  "Dental Treatments",
 ] as const;
 
 export type TreatmentCategory = (typeof treatmentCategories)[number];
@@ -60,11 +73,15 @@ export type Treatment = {
   category: TreatmentCategory;
   icon: LucideIcon;
   image: string;
+  gallery?: string[];
   short: string;
   overview: string;
   whoFor: string[];
   benefits: string[];
   steps: { title: string; text: string }[];
+  operationDuration?: string;
+  hospitalStay?: string;
+  recoveryPeriod?: string;
   recovery: string;
   risks: string[];
   results: string;
@@ -74,12 +91,166 @@ export type Treatment = {
 
 export const treatments: Treatment[] = [
   {
+    slug: "rhinoplasty",
+    name: "Rhinoplasty",
+    category: "Rhinoplasty",
+    icon: Stethoscope,
+    image: Rhinoplasty,
+    gallery: [BeforeRhinoplasty, AfterRhinoplasty],
+    short: "A refined nose reshaping procedure designed around your facial balance and breathing needs.",
+    overview:
+      "Rhinoplasty is tailored to improve the shape, proportions and function of the nose while preserving a natural look. The surgeon may make small changes to the bridge, tip, nostrils or septum to create an elegant profile and improve airflow.",
+    whoFor: [
+      "Patients unhappy with nose size, shape or asymmetry",
+      "Individuals with breathing issues caused by a deviated septum",
+      "Adults with stable facial growth and realistic expectations",
+    ],
+    benefits: [
+      "Improves facial harmony",
+      "Can support better breathing",
+      "Natural-looking contour changes",
+      "Performed by senior facial surgeons",
+    ],
+    steps: [
+      { title: "Consultation and planning", text: "You review before-and-after references, facial proportions and surgical goals with the surgeon." },
+      { title: "Pre-operative assessment", text: "Medical tests and bloodwork are reviewed before surgery, and a final plan is confirmed." },
+      { title: "Surgery", text: "The procedure is performed under general anaesthesia with precise reshaping of bone and cartilage." },
+      { title: "Recovery and follow-up", text: "The nose is splinted, swelling is monitored, and your recovery plan is reviewed before you fly home." },
+    ],
+    operationDuration: "1.5 to 3 hours",
+    hospitalStay: "1 night",
+    recoveryPeriod: "2 to 6 weeks",
+    recovery: "Most swelling settles within the first few weeks, while final refinement continues over several months.",
+    risks: ["Swelling and bruising", "Temporary numbness or congestion", "Scar tissue formation in rare cases", "Need for minor revision in selected cases"],
+    results: "A more balanced and natural-looking nose with improved function and a subtle, refined profile.",
+    faqs: [
+      { q: "Will the result look natural?", a: "Yes. We focus on proportional changes that suit your face rather than creating an overdone look." },
+      { q: "When can I travel home?", a: "Most patients are cleared to fly once their surgeon confirms swelling and healing are progressing normally." },
+    ],
+    doctorSlugs: ["mehmet-kaya"],
+  },
+  {
+    slug: "liposuction",
+    name: "Liposuction",
+    category: "Liposuction",
+    icon: Weight,
+    image: Liposuction,
+    gallery: [BeforeLiposuction, AfterLiposuction, beforeLoss, afterLoss],
+    short: "Body contouring to remove stubborn fat and improve definition in targeted areas.",
+    overview:
+      "Liposuction removes localised fat deposits that do not respond to exercise or diet. It is commonly used on the abdomen, waist, flanks, thighs and arms to sculpt a more balanced silhouette.",
+    whoFor: [
+      "Patients near their target weight with stubborn fat pockets",
+      "Adults wanting body contouring without a full body lift",
+      "Good general health candidates with realistic expectations",
+    ],
+    benefits: [
+      "Targets resistant fat areas",
+      "Improves body contour and definition",
+      "Quick recovery compared with larger body procedures",
+      "Helps with more balanced proportions",
+    ],
+    steps: [
+      { title: "Assessment and marking", text: "The surgeon maps the fatty zones and confirms the treatment plan with you." },
+      { title: "Anaesthesia and infiltration", text: "Local anaesthesia or general anaesthesia is used depending on the treatment area and volume." },
+      { title: "Fat removal", text: "Thin cannulas are used to remove excess fat while preserving natural contouring." },
+      { title: "Compression and monitoring", text: "Compression garments are fitted to support healing and reduce swelling after surgery." },
+    ],
+    operationDuration: "1 to 3 hours",
+    hospitalStay: "Same day or 1 night",
+    recoveryPeriod: "2 to 4 weeks",
+    recovery: "Most patients return to regular routines within a couple of weeks, with swelling gradually reducing over the following months.",
+    risks: ["Bruising and swelling", "Temporary skin irregularity", "Fluid collection in rare cases", "Need for additional contouring in a small number of patients"],
+    results: "A smoother and more sculpted silhouette with improved body proportions and better confidence in clothing.",
+    faqs: [
+      { q: "Is liposuction a weight-loss procedure?", a: "No. It is a body contouring treatment intended for stubborn pockets of fat and improved shape rather than significant weight reduction." },
+      { q: "Can I combine it with other procedures?", a: "Yes. Many patients combine liposuction with tummy tuck, breast procedures or body sculpting in the same surgical plan." },
+    ],
+    doctorSlugs: ["mehmet-kaya"],
+  },
+  {
+    slug: "tummy-tuck",
+    name: "Tummy Tuck",
+    category: "Tummy Tuck",
+    icon: Bone,
+    image: TummyTuck,
+    short: "Abdominoplasty that tightens the abdominal wall and removes excess skin for a firmer contour.",
+    overview:
+      "A tummy tuck, or abdominoplasty, removes excess skin and tightens weakened abdominal muscles to create a flatter, firmer midsection. It is often chosen after weight changes, pregnancy or significant abdominal stretching.",
+    whoFor: [
+      "Patients with loose abdominal skin after weight loss or pregnancy",
+      "Adults with weakened abdominal muscles",
+      "Individuals looking for a more toned waistline and firmer torso",
+    ],
+    benefits: [
+      "Flatter and firmer abdomen",
+      "Improves waistline definition",
+      "Removes excess skin and stretch marks in the lower abdomen",
+      "Can be combined with liposuction for contouring",
+    ],
+    steps: [
+      { title: "Pre-operative evaluation", text: "The surgeon reviews your abdominal anatomy, skin elasticity and the best incision pattern for your body." },
+      { title: "Surgery", text: "Excess skin is removed, the abdominal wall is tightened and the area is reshaped under general anaesthesia." },
+      { title: "Drain management", text: "Small drains may be placed temporarily to help reduce fluid buildup during recovery." },
+      { title: "Recovery check", text: "Compression garments and post-op guidance are provided before discharge and follow-up review." },
+    ],
+    operationDuration: "2 to 4 hours",
+    hospitalStay: "1 to 2 nights",
+    recoveryPeriod: "4 to 8 weeks",
+    recovery: "Initial healing takes a few weeks, with a gradual return to normal activity and a final silhouette emerging over time.",
+    risks: ["Swelling and bruising", "Temporary numbness", "Fluid collection or delayed wound healing", "Scar maturation over time"],
+    results: "A firmer, flatter abdomen with a more sculpted and proportionate waistline.",
+    faqs: [
+      { q: "Will there be a visible scar?", a: "Yes, there is usually a low horizontal scar, but it is positioned to be as discreet as possible and typically fades over time." },
+      { q: "Can it be combined with liposuction?", a: "Absolutely. Many patients combine abdominoplasty with liposuction for a more defined contour." },
+    ],
+    doctorSlugs: ["mehmet-kaya"],
+  },
+  {
+    slug: "breast-augmentation",
+    name: "Breast Augmentation",
+    category: "Breast Augmentation",
+    icon: Sparkles,
+    image: plastic,
+    short: "Implant-based breast enhancement to add volume and improve symmetry and shape.",
+    overview:
+      "Breast augmentation enhances breast size, balance and projection using silicone or saline implants selected to match your anatomy and aesthetic goals. The procedure is tailored to create a natural, proportionate result with a careful incision and implant plan.",
+    whoFor: [
+      "Patients seeking fuller, more balanced breasts",
+      "Women with breast volume loss after pregnancy or weight changes",
+      "Candidates in good health with realistic aesthetic goals",
+    ],
+    benefits: [
+      "Adds volume and fullness",
+      "Improves breast symmetry",
+      "Custom implant selection for natural proportions",
+      "Can be tailored to your preferred silhouette",
+    ],
+    steps: [
+      { title: "Consultation and implant choice", text: "Your surgeon reviews implant type, size and placement based on your anatomy and visual goals." },
+      { title: "Surgery", text: "An incision is made in a discreet location and the implant is inserted and positioned precisely." },
+      { title: "Recovery support", text: "Dressings, support garments and post-op instructions are provided before discharge." },
+      { title: "Follow-up", text: "You are reviewed after surgery to check healing, swelling and overall progress." },
+    ],
+    operationDuration: "1.5 to 3 hours",
+    hospitalStay: "1 night",
+    recoveryPeriod: "4 to 6 weeks",
+    recovery: "Patients usually recover well within a few weeks and can gradually resume normal activities as swelling decreases.",
+    risks: ["Temporary swelling and bruising", "Capsular contracture in some cases", "Implant-related changes over time", "Need for revision in selected cases"],
+    results: "A fuller, more balanced breast profile with improved silhouette and renewed confidence.",
+    faqs: [
+      { q: "How do I choose implant size?", a: "Your surgeon will help you select a size that suits your chest width, body proportions and desired look while keeping the result natural." },
+      { q: "Will the scar be noticeable?", a: "Incisions are placed strategically to minimise visibility, and scars continue to fade over time." },
+    ],
+    doctorSlugs: ["mehmet-kaya"],
+  },
+  {
     slug: "hair-transplant",
     name: "Hair Transplant",
-    category: "Hair",
-    icon: Sparkles,
+    category: "Hair Transplant",
+    icon: Scissors,
     image: hair,
-    short: "Sapphire FUE and DHI techniques for natural, permanent density.",
+    short: "Sapphire FUE and DHI techniques for natural-looking hair restoration.",
     overview:
       "Our surgeons use Sapphire FUE and DHI techniques to relocate your own resistant follicles to thinning areas, rebuilding a hairline designed around your facial proportions. Grafts are placed one by one for a density and direction that look entirely natural.",
     whoFor: [
@@ -99,6 +270,9 @@ export const treatments: Treatment[] = [
       { title: "Extraction", text: "Follicular units harvested one by one with micro-punches." },
       { title: "Implantation", text: "Grafts implanted at the correct angle and depth for natural flow." },
     ],
+    operationDuration: "4 to 8 hours",
+    hospitalStay: "Same day",
+    recoveryPeriod: "7 to 14 days",
     recovery: "Return to daily life quickly. Crusts fall within the first days, and new growth appears as the scalp heals.",
     risks: ["Temporary shock loss", "Swelling after the procedure", "Small risk of folliculitis", "Rare uneven density needing a touch-up"],
     results: "Excellent graft survival with visible density as the transplanted follicles mature.",
@@ -109,165 +283,81 @@ export const treatments: Treatment[] = [
     doctorSlugs: ["emre-yilmaz"],
   },
   {
-    slug: "dental-implants",
-    name: "Dental Implants",
-    category: "Dental",
+    slug: "gastric-sleeve",
+    name: "Gastric Sleeve",
+    category: "Gastric Sleeve",
+    icon: HeartPulse,
+    image: bariatric,
+    short: "A minimally invasive weight-loss surgery that reduces stomach size and helps control appetite.",
+    overview:
+      "Gastric sleeve surgery reduces the stomach to a smaller tube-shaped pouch, limiting food intake and improving satiety. It is a well-established bariatric option that supports meaningful and sustained weight reduction when paired with long-term lifestyle changes.",
+    whoFor: [
+      "Patients with BMI over 35, or over 30 with obesity-related conditions",
+      "Individuals who have not achieved lasting results with diet and exercise",
+      "Adults committed to follow-up care and nutrition support",
+    ],
+    benefits: [
+      "Significant and sustained weight loss",
+      "Improves obesity-related health conditions",
+      "Minimally invasive laparoscopic approach",
+      "Structured nutrition and follow-up programme",
+    ],
+    steps: [
+      { title: "Medical evaluation", text: "Blood tests, endoscopy and anaesthesia review are completed before surgery." },
+      { title: "Procedure", text: "A large portion of the stomach is removed laparoscopically to reduce appetite and intake." },
+      { title: "Hospital recovery", text: "Patients begin mobilisation early and are monitored for the first 24 to 48 hours." },
+      { title: "Lifestyle plan", text: "Dietitian support and ongoing reviews guide meal progression and long-term success." },
+    ],
+    operationDuration: "1 to 2 hours",
+    hospitalStay: "2 to 3 nights",
+    recoveryPeriod: "3 to 6 weeks",
+    recovery: "Most patients return to moderate activity within a few weeks and continue improving with nutrition and behavioural support.",
+    risks: ["Leak or bleeding (rare)", "Nutritional deficiencies without supplementation", "Acid reflux in some cases", "Need for long-term follow-up"],
+    results: "A significant reduction in excess weight with improved metabolic health and better quality of life.",
+    faqs: [
+      { q: "How much weight can I expect to lose?", a: "Many patients lose a substantial amount of excess body weight over the first 12 to 18 months, depending on commitment to lifestyle changes." },
+      { q: "Do I need lifelong follow-up?", a: "Yes. Ongoing nutrition, monitoring and medical reviews are important for long-term safety and weight management." },
+    ],
+    doctorSlugs: ["mehmet-kaya"],
+  },
+  {
+    slug: "dental-treatments",
+    name: "Dental Treatments",
+    category: "Dental Treatments",
     icon: Smile,
     image: dental,
-    short: "Titanium implants with lifetime-grade crowns, placed by prosthodontists.",
+    gallery: [beforeDental, afterDental],
+    short: "Comprehensive dental care including implants, smile design and restorative treatments.",
     overview:
-      "Swiss and German titanium implant systems replace missing roots and restore full chewing function. 3D CBCT planning and guided surgery keep placement precise and recovery short.",
-    whoFor: ["Single or multiple missing teeth", "Loose dentures", "Full-arch rehabilitation (All-on-4 / All-on-6)"],
-    benefits: ["Permanent tooth replacement", "Preserves jawbone", "Guided, minimally invasive surgery", "5–10 year warranty"],
-    steps: [
-      { title: "3D scan", text: "CBCT imaging and digital planning of implant position." },
-      { title: "Placement", text: "Guided insertion of the titanium fixture under local anaesthesia." },
-      { title: "Healing", text: "Osseointegration over 8–12 weeks with a temporary crown." },
-      { title: "Final crown", text: "Zirconia crown fitted and shade-matched on your second visit." },
+      "Dental treatments at Nexora Clinic combine restorative dentistry, cosmetic smile design and implant planning to improve function, aesthetics and confidence. Every plan is customised to your bite, tooth structure and lifestyle.",
+    whoFor: [
+      "Patients with missing, damaged or discoloured teeth",
+      "Individuals looking for cosmetic improvements or bite correction",
+      "Anyone seeking long-term dental restoration in a single treatment journey",
     ],
-    recovery: "Soft diet is advised at first, with normal activity resuming quickly.",
-    risks: ["Temporary swelling", "Rare implant failure", "Sinus involvement in upper jaw cases"],
-    results: "Over 97% long-term implant survival with proper care.",
-    faqs: [{ q: "Can it be done in one trip?", a: "Immediate loading is possible in selected cases; otherwise two visits are needed." }],
+    benefits: [
+      "Improves chewing comfort and function",
+      "Enhances smile aesthetics",
+      "Uses digital planning for precision",
+      "Can often be completed in one trip",
+    ],
+    steps: [
+      { title: "Clinical assessment", text: "The dental team reviews your oral health, X-rays and treatment goals in detail." },
+      { title: "Digital planning", text: "Your procedure is mapped digitally to improve outcome predictability and fit." },
+      { title: "Treatment", text: "Implants, veneers or restorations are placed according to your care plan." },
+      { title: "Aftercare", text: "Your dentist provides hygiene guidance and a follow-up plan to protect long-term success." },
+    ],
+    operationDuration: "1 to 3 hours depending on the treatment",
+    hospitalStay: "Same day or 1 night",
+    recoveryPeriod: "3 to 10 days",
+    recovery: "Most patients resume normal eating and speaking quickly, with a short adjustment period after restorative treatment.",
+    risks: ["Temporary sensitivity", "Swelling or bruising", "Rare implant complications", "Need for small refinements in some cases"],
+    results: "A healthier, more comfortable bite and a brighter, more confident smile with long-lasting restoration.",
+    faqs: [
+      { q: "Can I have treatment in one trip?", a: "Many cosmetic and restorative treatments can be completed during a single visit, while more complex implant work may require a healing period." },
+      { q: "Are the results natural-looking?", a: "Yes. Digital planning and shade matching ensure the final result complements your facial features and bite." },
+    ],
     doctorSlugs: ["elif-demir"],
-  },
-  {
-    slug: "hollywood-smile",
-    name: "Hollywood Smile",
-    category: "Dental",
-    icon: Sparkles,
-    image: smile,
-    short: "E-max veneers and digital smile design with a fast treatment journey.",
-    overview:
-      "A complete aesthetic makeover using digital smile design, E-max or zirconia veneers and minimal enamel reduction. You approve a mock-up of your new smile before anything is bonded.",
-    whoFor: ["Discoloured or worn teeth", "Gaps, chips and irregular shapes", "Patients wanting a full aesthetic makeover"],
-    benefits: ["Preview before treatment", "Stain resistant ceramics", "Completed in one trip", "Natural translucency"],
-    steps: [
-      { title: "Digital design", text: "Photos, scans and a simulation of your future smile." },
-      { title: "Mock-up", text: "Trial smile placed in your mouth for approval." },
-      { title: "Preparation", text: "Minimal shaping and precise impressions." },
-      { title: "Bonding", text: "Final veneers bonded and polished." },
-    ],
-    recovery: "No downtime; mild sensitivity is normal after the procedure.",
-    risks: ["Sensitivity to hot and cold", "Irreversible minimal enamel reduction", "Veneer chipping under heavy bite forces"],
-    results: "A uniform, bright and proportionate smile with long-lasting aesthetic value.",
-    faqs: [{ q: "How many veneers do I need?", a: "Most patients choose 16–20 upper and lower visible teeth." }],
-    doctorSlugs: ["elif-demir"],
-  },
-  {
-    slug: "plastic-surgery",
-    name: "Plastic Surgery",
-    category: "Plastic Surgery",
-    icon: Scissors,
-    image: plastic,
-    short: "Rhinoplasty, liposuction, tummy tuck and body contouring.",
-    overview:
-      "Board-certified plastic surgeons operating in JCI-accredited hospitals, covering rhinoplasty, breast surgery, liposuction, abdominoplasty and mommy makeovers with a single coordinated plan.",
-    whoFor: ["Adults in good general health", "Stable weight for at least 6 months", "Realistic aesthetic goals"],
-    benefits: ["Accredited hospital theatres", "Personal nurse coordinator", "Compression garments included", "Video follow-up after discharge"],
-    steps: [
-      { title: "Virtual consult", text: "Photo assessment and surgical plan before you fly." },
-      { title: "Pre-op tests", text: "Bloodwork, ECG and anaesthesia clearance on arrival." },
-      { title: "Surgery", text: "Performed under general anaesthesia with overnight monitoring." },
-      { title: "Aftercare", text: "Dressings, drains and clearance-to-fly check before departure." },
-    ],
-    recovery: "Most patients fly home once clinically cleared by their surgeon, and the result continues to improve during recovery.",
-    risks: ["Bruising and swelling", "Scarring", "Seroma or haematoma", "Anaesthesia-related risks"],
-    results: "Long-lasting contour improvements maintained with stable weight.",
-    faqs: [{ q: "Can I combine procedures?", a: "Yes, combinations are common and reduce total cost and recovery time." }],
-    doctorSlugs: ["mehmet-kaya"],
-  },
-  {
-    slug: "bariatric-surgery",
-    name: "Bariatric Surgery",
-    category: "Bariatric",
-    icon: Weight,
-    image: bariatric,
-    short: "Gastric sleeve and bypass with a full nutrition programme.",
-    overview:
-      "Laparoscopic sleeve gastrectomy and gastric bypass performed by high-volume bariatric teams, with dietitian support, psychological screening and a structured follow-up programme.",
-    whoFor: ["BMI above 35, or above 30 with comorbidities", "Failed long-term diet attempts", "Type 2 diabetes or sleep apnoea"],
-    benefits: ["Keyhole surgery", "Significant excess weight loss", "Diabetes remission in many cases", "Dietitian follow-up"],
-    steps: [
-      { title: "Medical review", text: "Blood panel, endoscopy and anaesthesia assessment." },
-      { title: "Surgery", text: "Laparoscopic procedure with 4–5 small incisions." },
-      { title: "Hospital stay", text: "2–3 nights with mobilisation from day one." },
-      { title: "Nutrition plan", text: "Staged diet plan and monthly online reviews." },
-    ],
-    recovery: "Light activity soon after surgery, with steady recovery in the weeks that follow.",
-    risks: ["Leak or bleeding (rare)", "Nutritional deficiency without supplements", "Reflux after sleeve"],
-    results: "Significant excess weight loss and sustained improvement with ongoing support.",
-    faqs: [{ q: "Sleeve or bypass?", a: "Your surgeon recommends the right option after reviewing BMI, reflux and metabolic history." }],
-    doctorSlugs: ["mehmet-kaya"],
-  },
-  {
-    slug: "ivf-fertility",
-    name: "IVF & Fertility",
-    category: "IVF",
-    icon: Baby,
-    image: ivf,
-    short: "ICSI, PGT-A testing and embryo freezing in top-tier laboratories.",
-    overview:
-      "Full IVF and ICSI cycles supported by time-lapse incubation, genetic screening and personalised stimulation protocols in ISO-certified embryology labs.",
-    whoFor: ["Couples with unexplained infertility", "Male factor infertility", "Previous failed cycles elsewhere"],
-    benefits: ["Time-lapse embryo monitoring", "PGT-A genetic screening", "Embryo and egg freezing", "Coordinated remote monitoring"],
-    steps: [
-      { title: "Assessment", text: "Hormone panel, ultrasound and semen analysis." },
-      { title: "Stimulation", text: "Monitored ovarian stimulation with personalised medication." },
-      { title: "Retrieval & ICSI", text: "Egg collection under sedation and fertilisation in the lab." },
-      { title: "Transfer", text: "Fresh or frozen embryo transfer and pregnancy test." },
-    ],
-    recovery: "Rest briefly after retrieval; most patients are comfortable after transfer.",
-    risks: ["Ovarian hyperstimulation", "Multiple pregnancy", "Cycle cancellation"],
-    results: "Success rates vary by age; our clinics report strong outcomes for eligible patients.",
-    faqs: [{ q: "How long must we stay?", a: "We craft your travel plan based on your medical cycle and preferred schedule." }],
-    doctorSlugs: ["zeynep-arslan"],
-  },
-  {
-    slug: "orthopedics",
-    name: "Orthopedics",
-    category: "Orthopedics",
-    icon: Bone,
-    image: ortho,
-    short: "Knee and hip replacement, arthroscopy and spine procedures.",
-    overview:
-      "Joint replacement and sports-injury surgery using implants from leading global manufacturers, combined with an in-house physiotherapy programme after surgery.",
-    whoFor: ["Advanced osteoarthritis", "Sports injuries such as ACL or meniscus tears", "Chronic back and disc pain"],
-    benefits: ["Premium implants", "Daily physiotherapy included", "Early mobilisation protocols", "Remote rehab plan after you fly home"],
-    steps: [
-      { title: "Imaging review", text: "X-ray and MRI assessment before travel." },
-      { title: "Surgery", text: "Joint replacement or arthroscopic repair." },
-      { title: "Physiotherapy", text: "Structured rehabilitation guided by your surgical team." },
-      { title: "Discharge plan", text: "Home exercise programme and remote reviews." },
-    ],
-    recovery: "Walking with support soon after surgery, with gradual recovery and strengthening.",
-    risks: ["Blood clots", "Infection", "Implant loosening over time"],
-    results: "Long-term pain relief and restored function with proper rehabilitation.",
-    faqs: [{ q: "Do you help with mobility support?", a: "Yes — wheelchair transfers, accessible hotels and airport assistance are arranged." }],
-    doctorSlugs: ["emre-yilmaz"],
-  },
-  {
-    slug: "dermatology",
-    name: "Dermatology & Skin",
-    category: "Dermatology",
-    icon: HeartPulse,
-    image: derm,
-    short: "Laser resurfacing, fillers, PRP and medical skin programmes.",
-    overview:
-      "Medical and aesthetic dermatology: fractional laser, chemical peels, PRP, mesotherapy, botulinum toxin and dermal fillers delivered by consultant dermatologists.",
-    whoFor: ["Acne scars and pigmentation", "Fine lines and volume loss", "Hair thinning suited to PRP"],
-    benefits: ["Non-surgical", "Little to no downtime", "Combinable with other treatments", "Medical-grade aftercare kit"],
-    steps: [
-      { title: "Skin analysis", text: "Consultant assessment and photo documentation." },
-      { title: "Plan", text: "Session count and product selection agreed with you." },
-      { title: "Treatment", text: "Performed with topical anaesthesia where needed." },
-      { title: "Aftercare", text: "Home routine and sun-protection protocol." },
-    ],
-    recovery: "Redness is usually temporary depending on the procedure.",
-    risks: ["Temporary redness or swelling", "Pigment changes", "Rare bruising after injectables"],
-    results: "Progressive improvement with ongoing maintenance care.",
-    faqs: [{ q: "Can I fly the same day?", a: "Most non-surgical skin treatments allow return travel once your consultant confirms you are ready." }],
-    doctorSlugs: ["zeynep-arslan"],
   },
 ];
 
@@ -291,102 +381,125 @@ export type Doctor = {
 
 export const doctors: Doctor[] = [
   {
-    slug: "emre-yilmaz",
-    name: "Dr. Emre Yılmaz",
-    specialty: "Hair Restoration & Orthopedic Surgery",
-    category: "Hair",
-    years: 16,
+    slug: "erdal-sakalli",
+    name: "Assoc. Prof. MD. Erdal Sakalli",
+    specialty: "Ear, Nose, and Throat (ENT)",
+    category: "Rhinoplasty",
+    years: 17,
     rating: 4.9,
     reviews: 412,
-    languages: ["English", "Turkish", "German"],
+    languages: ["English", "Turkish", "Arabic"],
     photo: doc1,
-    hospital: "Marmara Specialised Hospital, Istanbul",
-    bio: "Dr. Emre Yılmaz has performed more than 4,000 Sapphire FUE and DHI procedures and leads Nexora's hair restoration unit. He is known for conservative, age-appropriate hairline design and meticulous graft handling.",
-    specialties: ["Sapphire FUE", "DHI implantation", "Beard & eyebrow transplant", "Joint preservation surgery"],
-    education: ["MD, Istanbul University", "MSc Surgery, Hacettepe University", "ISHRS Fellowship, Istanbul"],
-    experience: ["Head of Hair Restoration, Nexora Clinic (2018–now)", "Consultant Surgeon, Marmara Specialised Hospital", "Visiting surgeon, Berlin Aesthetic Institute"],
-    certificates: ["ISHRS Member", "Turkish Medical Association", "Advanced Trauma Life Support"],
+    hospital: "Medical Park Florya",
+    bio: "Assoc. Prof. MD. Erdal Sakalli focuses on functional ENT care, sinus treatment, and nasal surgery with an emphasis on natural airway balance and patient comfort.",
+    specialties: ["ENT", "Nasal surgery", "Sinus treatment", "Airway balancing"],
+    education: ["MD, Ege University", "ENT Residency, Istanbul University", "Advanced Rhinology Course, Berlin"],
+    experience: ["Consultant ENT Specialist, Medical Park Florya", "3,000+ ENT cases", "International patient care coordinator"],
+    certificates: ["Turkish ENT Association", "European Rhinology Society", "Medical Park Quality Lead"],
   },
   {
-    slug: "elif-demir",
-    name: "Dr. Elif Demir",
-    specialty: "Prosthodontics & Cosmetic Dentistry",
-    category: "Dental",
-    years: 13,
+    slug: "yakup-cil",
+    name: "Prof. MD. Yakup Çil",
+    specialty: "Medical Aesthetics",
+    category: "Rhinoplasty",
+    years: 22,
     rating: 5.0,
-    reviews: 356,
-    languages: ["English", "Turkish", "Italian"],
+    reviews: 498,
+    languages: ["English", "Turkish", "Arabic"],
     photo: doc2,
-    hospital: "Nexora Dental Centre, Istanbul",
-    bio: "Dr. Elif Demir specialises in digital smile design, full-mouth rehabilitation and guided implantology, combining scanner-based planning with a strongly conservative approach to tooth structure.",
-    specialties: ["Digital smile design", "E-max & zirconia veneers", "Guided implant surgery", "Full-arch rehabilitation"],
-    education: ["DDS, Ege University", "MSc Prosthodontics, Istanbul University", "Certificate in Digital Dentistry, Milan"],
-    experience: ["Clinical Director, Nexora Dental Centre", "Lecturer in Prosthodontics, Istanbul University", "8,000+ veneers placed"],
-    certificates: ["ICOI Diplomate", "Invisalign Certified", "Turkish Dental Association"],
+    hospital: "Medical Park Florya",
+    bio: "Prof. MD. Yakup Çil brings a refined aesthetic approach to facial rejuvenation and minimally invasive cosmetic treatments designed for natural, balanced results.",
+    specialties: ["Medical aesthetics", "Facial rejuvenation", "Injectables", "Skin balancing"],
+    education: ["MD, İstanbul University", "Aesthetic Medicine Fellowship, London", "Advanced Facial Rejuvenation Training, Paris"],
+    experience: ["Senior Aesthetic Physician, Medical Park Florya", "10,000+ aesthetic consultations", "Global aesthetic patient care specialist"],
+    certificates: ["Turkish Aesthetic Society", "International Aesthetic Medicine Council", "Laser Safety Certified"],
   },
   {
-    slug: "mehmet-kaya",
-    name: "Dr. Mehmet Kaya",
-    specialty: "Plastic & Bariatric Surgery",
-    category: "Plastic Surgery",
-    years: 21,
-    rating: 4.8,
-    reviews: 528,
-    languages: ["English", "Turkish", "French"],
+    slug: "ali-can-gunenc",
+    name: "OP. Dr. Ali Can Gunenc",
+    specialty: "Plastic Surgery",
+    category: "Liposuction",
+    years: 20,
+    rating: 4.9,
+    reviews: 385,
+    languages: ["English", "Turkish"],
     photo: doc3,
-    hospital: "Istanbul International Hospital (JCI)",
-    bio: "With over two decades in aesthetic and metabolic surgery, Dr. Mehmet Kaya performs rhinoplasty, body contouring and laparoscopic bariatric procedures, with a strong focus on safety protocols for travelling patients.",
-    specialties: ["Rhinoplasty", "Liposuction & tummy tuck", "Mommy makeover", "Sleeve gastrectomy & bypass"],
-    education: ["MD, Hacettepe University", "MD Plastic Surgery, Hacettepe University", "Fellowship in Bariatric Surgery, Lyon"],
-    experience: ["Chief of Aesthetic Surgery, Istanbul International Hospital", "6,000+ surgical procedures", "Speaker, ISAPS regional congress"],
-    certificates: ["ISAPS Member", "IFSO Member", "JCI Safety Protocol Lead"],
+    hospital: "Medical Park Florya",
+    bio: "OP. Dr. Ali Can Gunenc performs body contouring and aesthetic plastic surgery with a focus on proportion, natural harmony and refined surgical detail.",
+    specialties: ["Plastic surgery", "Body contouring", "Facial balancing", "Aesthetic procedures"],
+    education: ["MD, Hacettepe University", "Plastic Surgery Residency, Istanbul University", "Advanced Aesthetic Surgery Fellowship, Munich"],
+    experience: ["Consultant Plastic Surgeon, Medical Park Florya", "4,500+ aesthetic procedures", "Aesthetic surgery mentor"],
+    certificates: ["ISAPS Member", "Turkish Society of Plastic Surgery", "Aesthetic Surgery Safety Training"],
   },
   {
-    slug: "zeynep-arslan",
-    name: "Dr. Zeynep Arslan",
-    specialty: "Reproductive Medicine & Dermatology",
-    category: "IVF",
+    slug: "hakan-seyit",
+    name: "Prof. Dr. Hakan Seyit",
+    specialty: "General Surgery",
+    category: "Gastric Sleeve",
+    years: 19,
+    rating: 4.8,
+    reviews: 360,
+    languages: ["English", "Turkish"],
+    photo: doc4,
+    hospital: "İstinye Üniversitesi Medical Park Gaziosmanpaşa",
+    bio: "Prof. Dr. Hakan Seyit is known for precise general surgical planning and patient-first care, with a strong emphasis on safety and sustainable treatment outcomes.",
+    specialties: ["General surgery", "Weight-loss surgery", "Abdominal treatment", "Patient safety planning"],
+    education: ["MD, Marmara University", "General Surgery Residency, Ankara University", "Advanced Surgical Fellowship, Heidelberg"],
+    experience: ["Consultant General Surgeon, Medical Park Florya", "2,700+ surgical cases", "Surgical safety committee lead"],
+    certificates: ["Turkish Surgical Association", "Laparoscopic Surgery Certified", "JCI Safety Certified"],
+  },
+  {
+    slug: "halil-alis",
+    name: "Prof. MD. Halil Aliş",
+    specialty: "Surgical Oncology",
+    category: "Gastric Sleeve",
+    years: 18,
+    rating: 4.9,
+    reviews: 420,
+    languages: ["English", "Turkish", "German"],
+    photo: doc5,
+    hospital: "Medical Park Florya",
+    bio: "Prof. MD. Halil Aliş brings a meticulous, precision-focused approach to surgery and oncologic care, combining advanced operative technique with compassionate patient guidance.",
+    specialties: ["Surgical oncology", "Tumour surgery", "Advanced care planning", "Complex procedures"],
+    education: ["MD, İstanbul University", "Oncology Surgery Residency, Cerrahpaşa", "Advanced Oncology Fellowship, Zurich"],
+    experience: ["Senior Oncology Surgeon, Medical Park Florya", "2,100+ oncology procedures", "Member of tumour board committees"],
+    certificates: ["Turkish Society of Surgical Oncology", "European Oncology Society", "Advanced Surgical Oncology Training"],
+  },
+  {
+    slug: "akin-zengin",
+    name: "Dr. Öğr. Üyesi Akın Zengin",
+    specialty: "Ear, Nose, and Throat (ENT)",
+    category: "Rhinoplasty",
     years: 15,
     rating: 4.9,
-    reviews: 289,
-    languages: ["English", "Turkish", "German"],
-    photo: doc4,
-    hospital: "Nexora Fertility & Skin Institute",
-    bio: "Dr. Zeynep Arslan leads our fertility programme and aesthetic dermatology unit, combining individualised stimulation protocols with a calm, information-first approach for international couples.",
-    specialties: ["IVF & ICSI", "PGT-A screening", "Fertility preservation", "Laser & injectable dermatology"],
-    education: ["MD, Istanbul University", "MD Obstetrics & Gynaecology", "ESHRE Certification in Reproductive Medicine"],
-    experience: ["Director, Nexora Fertility Institute", "3,000+ IVF cycles supervised", "Researcher in embryo time-lapse selection"],
-    certificates: ["ESHRE Member", "ASRM Member", "Turkish Society of Reproductive Medicine"],
+    reviews: 319,
+    languages: ["English", "Turkish"],
+    photo: doc6,
+    hospital: "İstinye Üniversitesi Medical Park Gaziosmanpaşa",
+    bio: "Dr. Öğr. Üyesi Akın Zengin treats patients with ENT and nasal health concerns using modern diagnostics and patient-centred care for long-term comfort and function.",
+    specialties: ["ENT", "Nasal health", "Rhinology", "Functional treatment"],
+    education: ["MD, Gazi University", "ENT Residency, Marmara University", "Advanced Rhinology Certificate, Istanbul"],
+    experience: ["ENT Consultant, Medical Park Florya", "1,800+ ENT cases", "Functional ENT specialist"],
+    certificates: ["Turkish ENT Association", "Rhinology Training Certificate", "Clinical ENT Quality Lead"],
   },
 ];
 
-export const hospitals = [
-  { name: "Istanbul International Hospital", accreditation: "JCI Accredited", city: "Istanbul" },
-  { name: "Marmara Specialised Hospital", accreditation: "ISO 9001 & TÜRKAK", city: "Istanbul" },
-  { name: "Ankara Medical Park", accreditation: "TÜRKAK Accredited", city: "Izmir" },
-  { name: "Antalya Recovery Centre", accreditation: "ISO 9001", city: "Antalya" },
-];
+export const hospitals = [];
 
 export const features = [
-  { title: "Local & International Patients", text: "We care for patients living in Turkey and travellers from around the world, with one dedicated coordinator each." },
-  { title: "Top Turkish Specialists", text: "Consultants selected on outcomes, volume and patient feedback." },
-  { title: "Accredited Hospitals", text: "JCI and TÜRKAK accredited theatres and sterile facilities." },
-  { title: "Airport Pickup", text: "Private driver waiting at arrivals for every transfer." },
-  { title: "Hotel Accommodation", text: "Vetted 4 and 5 star hotels close to your clinic." },
-  { title: "Interpreter Services", text: "English, Turkish, Italian, German and French interpreters." },
-  { title: "Transparent Planning", text: "Clear, itemised treatment plans with no hidden medical costs." },
-  { title: "Personalised Care", text: "Plans built around your medical history and travel dates." },
+  { title: "A dedicated point of contact", text: "Get help organising the next steps of your treatment journey." },
+  { title: "An individual plan", text: "Your medical assessment guides the arrangements and quotation." },
+  { title: "Clear package details", text: "Understand what is included and what is quoted separately before booking." },
+  { title: "Travel and language support", text: "Hotel, transfer and interpreter arrangements are specified in your package." },
 ];
 
 export const journey = [
-  { step: "01", title: "Free Consultation", text: "Share your photos and goals; we reply with a personalised review." },
-  { step: "02", title: "Medical Evaluation", text: "Your file is reviewed by the relevant consultant." },
-  { step: "03", title: "Treatment Plan", text: "A clear, itemised treatment plan is issued." },
-  { step: "04", title: "Travel Arrangements", text: "Invitation letter, hotel and transfers organised." },
-  { step: "05", title: "Arrival in Turkey", text: "Airport pickup, SIM card and pre-op checks." },
-  { step: "06", title: "Treatment", text: "Your procedure in an accredited hospital." },
-  { step: "07", title: "Recovery", text: "Monitored recovery with nurse visits and interpreters." },
-  { step: "08", title: "Follow-up Care", text: "Ongoing remote reviews with your doctor." },
+  { step: "01", title: "Tell us your goals", text: "Share your treatment interest and preferred timing." },
+  { step: "02", title: "Medical review", text: "We coordinate review of the relevant information with the treating specialist." },
+  { step: "03", title: "Receive your plan", text: "Review proposed arrangements, inclusions and your quotation." },
+  { step: "04", title: "Confirm your visit", text: "Once the plan is agreed, complete the booking requirements and share your travel details." },
+  { step: "05", title: "Consultation and treatment", text: "In-person assessment and necessary checks precede treatment; the doctor confirms the final plan." },
+  { step: "06", title: "Recovery and follow-up", text: "Follow the treating team's instructions, with coordination support as specified in your plan." },
 ];
 
 export const stats = [
@@ -495,12 +608,10 @@ export const packages = [
 ];
 
 export const beforeAfter = [
-  { id: 1, category: "Hair", title: "Sapphire FUE — 3,800 grafts", before: baHairBefore, after: baHairAfter },
-  { id: 2, category: "Dental", title: "20 E-max veneers", before: baDentalBefore, after: baDentalAfter },
-  { id: 3, category: "Weight Loss", title: "Gastric sleeve — 38 kg lost", before: baWeightBefore, after: baWeightAfter },
-  { id: 4, category: "Hair", title: "DHI crown restoration", before: baHairBefore, after: baHairAfter },
-  { id: 5, category: "Plastic Surgery", title: "Tummy tuck & liposuction", before: baWeightBefore, after: baWeightAfter },
-  { id: 6, category: "Dental", title: "Full-arch implant rehab", before: baDentalBefore, after: baDentalAfter },
+  { id: 1, category: "Dental", title: "Hollywood Smile", before: beforeDental, after: afterDental },
+  { id: 2, category: "Plastic Surgery", title: "Rhinoplasty refinement", before: BeforeRhinoplasty, after: AfterRhinoplasty },
+  { id: 3, category: "Plastic Surgery", title: "Liposuction contouring", before: BeforeLiposuction, after: AfterLiposuction },
+  { id: 4, category: "Plastic Surgery", title: "A visible body-contouring transformation", before: beforeLoss, after: afterLoss },
 ];
 
 export const beforeAfterCategories = ["All", "Hair", "Dental", "Plastic Surgery", "Weight Loss"] as const;

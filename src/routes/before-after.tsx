@@ -11,9 +11,9 @@ import { cn } from "@/lib/utils";
 export const Route = createFileRoute("/before-after")({
   head: () => ({
     meta: [
-      { title: "Before & After Gallery — Nexora Clinic Turkey" },
+      { title: "Patient Results — Nexora Clinic Turkey" },
       { name: "description", content: "Compare real before and after results for hair transplant, dental, plastic surgery and weight loss patients treated in Turkey." },
-      { property: "og:title", content: "Before & After Gallery — Nexora Clinic" },
+      { property: "og:title", content: "Patient Results — Nexora Clinic" },
       { property: "og:description", content: "Drag-to-compare patient results, published with written consent." },
       { property: "og:url", content: "/before-after" },
     ],
@@ -29,10 +29,10 @@ function BeforeAfterPage() {
   return (
     <>
       <PageHero
-        eyebrow="Before & after"
+        eyebrow="Patient Results"
         title="Results you can compare for yourself"
         description="Every image is published with written patient consent and shows unretouched clinical documentation."
-        breadcrumb={[{ label: "Before & After" }]}
+        breadcrumb={[{ label: "Patient Results" }]}
       />
 
       <section className="section">

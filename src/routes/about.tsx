@@ -1,11 +1,10 @@
-import { createFileRoute } from "@tanstack/react-router";
-import { Award, Compass, Eye, HeartHandshake, Target } from "lucide-react";
-import { PageHero } from "@/components/site/page-hero";
+import { Link, createFileRoute } from "@tanstack/react-router";
+import { ChevronRight, Compass, Eye, HeartHandshake, Target } from "lucide-react";
 import { SectionHeading } from "@/components/site/section-heading";
 import { Reveal } from "@/components/site/reveal";
-import { Counter } from "@/components/site/counter";
 import { CtaSection } from "@/components/site/cta-section";
-import { hospitals, stats } from "@/data/site";
+import { hospitals } from "@/data/site";
+import aboutImage from "@/assets/about.jpg";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -23,9 +22,9 @@ export const Route = createFileRoute("/about")({
 
 const values = [
   { icon: HeartHandshake, title: "Patients first", text: "Every recommendation must be the one we would give our own family." },
-  { icon: Eye, title: "Radical transparency", text: "Named doctors, honest expectations and clear clinical planning." },
-  { icon: Target, title: "Clinical excellence", text: "Accredited hospitals, audited outcomes, no compromise on safety." },
-  { icon: Compass, title: "Effortless journeys", text: "Visas, transfers, hotels and interpreters handled end to end." },
+  { icon: Eye, title: "Personalized Care", text: "Every patient is different. We help create a medical journey based on individual needs and treatment goals." },
+  { icon: Target, title: "Transparent Communication", text: "We believe patients deserve clear information about their treatment, expectations, and costs before making a decision." },
+  { icon: Compass, title: "Complete Journey Support", text: "From medical consultation and appointment coordination to airport transfers, accommodation, interpretation, and follow-up, we make the process easier from start to finish." },
 ];
 
 const milestones = [
@@ -39,18 +38,53 @@ const milestones = [
 function AboutPage() {
   return (
     <>
-      <PageHero
-        eyebrow="About us"
-        title="A patient-first bridge between the world and Turkey's best medicine"
-        description="Nexora Clinic was founded by Turkish physicians who saw international patients arriving unprepared, unsupported and overcharged. We built the company we wished existed."
-        breadcrumb={[{ label: "About Us" }]}
-      />
+      <section className="relative overflow-hidden pt-32 pb-16 text-white lg:pt-40 lg:pb-24">
+        <div className="absolute inset-0">
+          <img src={aboutImage} alt="Nexora Healthcare lobby" className="h-full w-full object-cover" />
+          <div className="absolute inset-0 bg-slate-950/45" />
+        </div>
+
+        <div className="container-page relative z-10">
+          <nav aria-label="Breadcrumb" className="mb-6">
+            <ol className="flex flex-wrap items-center gap-1 text-sm text-white/80">
+              <li>
+                <Link to="/" className="transition-colors hover:text-white">
+                  Home
+                </Link>
+              </li>
+              <li className="flex items-center gap-1">
+                <ChevronRight className="h-3.5 w-3.5" aria-hidden />
+                <span className="font-medium text-white">About Nexora</span>
+              </li>
+            </ol>
+          </nav>
+
+          <span className="inline-flex items-center rounded-full border border-white/30 bg-white/10 px-3 py-1 text-xs font-semibold tracking-[0.18em] text-white uppercase backdrop-blur-sm">
+            NEXORA HEALTHCARE
+          </span>
+
+          <h1 className="mt-5 max-w-3xl text-4xl font-bold text-balance lg:text-6xl">
+            Personal support at every step
+          </h1>
+
+          <div className="mt-6 max-w-3xl space-y-4 text-lg leading-relaxed text-white/90">
+            <p>
+              Nexora Health helps international patients organise their treatment journey in Türkiye.
+              We coordinate communication with treating doctors, treatment arrangements and travel support,
+              with clear package details and a dedicated point of contact.
+            </p>
+            <p>
+              Medical decisions and treatment remain the responsibility of the treating healthcare professionals.
+            </p>
+          </div>
+        </div>
+      </section>
 
       <section className="section">
         <div className="container-page grid gap-6 md:grid-cols-3">
           {[
-            { title: "Our Mission", text: "To make world-class medical treatment accessible, transparent and stress-free for patients travelling to Turkey." },
-            { title: "Our Vision", text: "To be the most trusted medical tourism partner in the Middle East and Africa by 2030." },
+            { title: "Our Mission", text: "To simplify access to trusted healthcare in Turkey by connecting patients with the right medical professionals and healthcare providers, while providing clear guidance and support throughout their healthcare journey." },
+            { title: "Our Vision", text: "To become a leading and trusted name in healthcare consultancy in Turkey, setting a new standard for how international patients discover, access, and experience healthcare." },
             { title: "Our Story", text: "From three surgeons in Istanbul to a team of coordinators, nurses and interpreters serving patients across four continents." },
           ].map((b, i) => (
             <Reveal key={b.title} delay={i * 80}>
@@ -63,28 +97,9 @@ function AboutPage() {
         </div>
       </section>
 
-      <section className="section bg-surface">
-        <div className="container-page">
-          <SectionHeading eyebrow="Why Turkey" title="Expert medicine at a fraction of European prices" description="Turkey trains one of the largest medical workforces in the region, its private hospitals hold international accreditation, and living costs make treatment 50–70% cheaper than Western Europe — without any compromise in clinical standards." />
-          <dl className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {stats.map((s, i) => (
-              <Reveal key={s.label} delay={i * 70}>
-                <div className="rounded-3xl border border-border bg-card p-7 text-center shadow-soft">
-                  <dt className="sr-only">{s.label}</dt>
-                  <dd className="font-display text-4xl font-bold text-gradient-brand">
-                    <Counter to={s.value} suffix={s.suffix} />
-                  </dd>
-                  <dd className="mt-2 text-sm text-muted-foreground">{s.label}</dd>
-                </div>
-              </Reveal>
-            ))}
-          </dl>
-        </div>
-      </section>
-
       <section className="section">
         <div className="container-page">
-          <SectionHeading eyebrow="Our values" title="What we hold ourselves to" />
+          <SectionHeading eyebrow="Our values" title="Why Patients Choose Nexora" />
           <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {values.map(({ icon: Icon, title, text }, i) => (
               <Reveal key={title} delay={i * 70}>

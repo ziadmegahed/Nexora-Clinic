@@ -38,7 +38,7 @@ function TreatmentDetail() {
   const { slug } = Route.useParams();
   const treatment = treatments.find((t) => t.slug === slug)!;
   const related = doctors.filter((d) => treatment.doctorSlugs.includes(d.slug));
-  const gallery = treatments.filter((t) => t.category === treatment.category).slice(0, 3);
+  const gallery = treatment.gallery?.length ? treatment.gallery : treatments.filter((t) => t.category === treatment.category).slice(0, 3).map((t) => t.image);
 
   return (
     <>
@@ -64,12 +64,97 @@ function TreatmentDetail() {
             </Reveal>
 
             <Reveal>
-              <h2 className="font-display text-2xl font-bold">Overview</h2>
+              <h2 className="font-display text-2xl font-bold">Procedure overview</h2>
               <p className="mt-3 leading-relaxed text-muted-foreground">{treatment.overview}</p>
             </Reveal>
 
             <Reveal>
-              <h2 className="font-display text-2xl font-bold">Who is it for?</h2>
+              <h2 className="font-display text-2xl font-bold">What your consultation will discuss</h2>
+              <p className="mt-3 leading-relaxed text-muted-foreground">
+                During the consultation, the treating specialist reviews your medical history, treatment goals and any relevant photos or clinical notes. The discussion focuses on whether the procedure is clinically appropriate, what assessment is needed before treatment, and which options are suitable for your individual case.
+              </p>
+              <ul className="mt-4 space-y-2">
+                <li className="flex gap-2 text-sm text-muted-foreground">
+                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-accent" aria-hidden />
+                  Your medical history, symptoms and treatment goals.
+                </li>
+                <li className="flex gap-2 text-sm text-muted-foreground">
+                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-accent" aria-hidden />
+                  Clinical suitability, expected planning steps and any additional assessment required.
+                </li>
+                <li className="flex gap-2 text-sm text-muted-foreground">
+                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-accent" aria-hidden />
+                  Treatment approach, likely support needs and follow-up arrangements after specialist review.
+                </li>
+              </ul>
+            </Reveal>
+
+            <Reveal>
+              <h2 className="font-display text-2xl font-bold">Assessment and planning process</h2>
+              <ol className="mt-4 space-y-3">
+                <li className="rounded-2xl border border-border bg-card p-5 text-sm text-muted-foreground">
+                  <span className="block font-semibold text-foreground">1. Initial review</span>
+                  Your information is reviewed by the coordination team and the relevant specialist.
+                </li>
+                <li className="rounded-2xl border border-border bg-card p-5 text-sm text-muted-foreground">
+                  <span className="block font-semibold text-foreground">2. Clinical assessment</span>
+                  The specialist confirms medical suitability, required checks and any treatment-specific planning.
+                </li>
+                <li className="rounded-2xl border border-border bg-card p-5 text-sm text-muted-foreground">
+                  <span className="block font-semibold text-foreground">3. Written plan</span>
+                  We prepare a clear treatment summary, relevant inclusions and any exclusions before a quotation is issued.
+                </li>
+                <li className="rounded-2xl border border-border bg-card p-5 text-sm text-muted-foreground">
+                  <span className="block font-semibold text-foreground">4. Quotation and decision</span>
+                  Once the plan is agreed, the written quotation sets out the scope, timing and payment terms.
+                </li>
+              </ol>
+            </Reveal>
+
+            <Reveal>
+              <h2 className="font-display text-2xl font-bold">Indicative travel and recovery arrangements</h2>
+              <p className="mt-3 leading-relaxed text-muted-foreground">
+                Travel, accommodation, follow-up timing and any recovery guidance are discussed only after the treating clinician reviews the case. Arrangements depend on the procedure, medical assessment, recovery status and the documented plan for each patient. We do not publish fixed return-to-flight or recovery timings copied from unrelated cases.
+              </p>
+            </Reveal>
+
+            <Reveal>
+              <h2 className="font-display text-2xl font-bold">Package inclusions and exclusions</h2>
+              <p className="mt-3 leading-relaxed text-muted-foreground">
+                Depending on your treatment and quotation, package items may include relevant medical fees, hospital and operational charges, surgeon and anaesthesia fees, accommodation arrangements, transfer support, interpreter assistance and follow-up coordination. Inclusions, exclusions and payment terms are confirmed in the written quotation.
+              </p>
+              <ul className="mt-4 space-y-2">
+                <li className="flex gap-2 text-sm text-muted-foreground">
+                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-accent" aria-hidden />
+                  What is included is defined in the issued quote, not assumed from a standard package.
+                </li>
+                <li className="flex gap-2 text-sm text-muted-foreground">
+                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-accent" aria-hidden />
+                  Flights, additional treatments, optional procedures and non-medical extras are excluded unless explicitly stated.
+                </li>
+              </ul>
+            </Reveal>
+
+            <Reveal>
+              <h2 className="font-display text-2xl font-bold">Verified outcomes</h2>
+              <p className="mt-3 leading-relaxed text-muted-foreground">{treatment.results}</p>
+              <p className="mt-3 text-sm text-muted-foreground">
+                Verified outcomes are individual and should be interpreted alongside elapsed time, baseline anatomy and the specialist's assessment. No result is guaranteed.
+              </p>
+            </Reveal>
+
+            <Reveal>
+              <h2 className="font-display text-2xl font-bold">Quotation and payment</h2>
+              <p className="mt-3 leading-relaxed text-muted-foreground">
+                Use Request a personalised quotation until current Nexora pricing is approved. Historical patient quotes and Medical Park employment quotes are not a public Nexora price list. When publishing prices, include currency, scope, exclusions and validity. Default quotation currency is EUR unless the actual quote specifies otherwise.
+              </p>
+              <p className="mt-3 leading-relaxed text-muted-foreground">
+                Deposits are made by bank transfer under the issued booking instructions. Hospital balance payment options must match the specific provider and the written quotation. We do not publish bank details from memory or promise a single universal balance-payment method. Approved cancellation and refund terms are shown before any booking payment.
+              </p>
+            </Reveal>
+
+            <Reveal>
+              <h2 className="font-display text-2xl font-bold">Suitable candidates</h2>
               <ul className="mt-4 space-y-2">
                 {treatment.whoFor.map((w) => (
                   <li key={w} className="flex gap-2 text-sm text-muted-foreground">
@@ -134,11 +219,11 @@ function TreatmentDetail() {
             <Reveal>
               <h2 className="font-display text-2xl font-bold">Gallery</h2>
               <div className="mt-4 grid gap-4 sm:grid-cols-3">
-                {gallery.map((g) => (
+                {gallery.map((image, index) => (
                   <img
-                    key={g.slug}
-                    src={g.image}
-                    alt={`${g.name} treatment at Nexora Clinic`}
+                    key={`${treatment.slug}-${index}`}
+                    src={image}
+                    alt={`${treatment.name} treatment at Nexora Clinic`}
                     loading="lazy"
                     width={900}
                     height={700}
@@ -160,10 +245,10 @@ function TreatmentDetail() {
             <div className="rounded-3xl border border-border bg-card p-6 shadow-soft">
               <h2 className="font-display text-lg font-bold">Need a personalised plan?</h2>
               <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
-                This page explains the treatment approach, recovery and results. A free consultation confirms the right clinical plan for you.
+                A clinician-reviewed assessment helps confirm suitability, any necessary pre-treatment checks and a clear quotation for the planned care.
               </p>
               <Button asChild className="mt-6 w-full rounded-full font-semibold">
-                <Link to="/consultation">Get a Free Consultation</Link>
+                <Link to="/consultation">Request a personalised quotation</Link>
               </Button>
             </div>
 

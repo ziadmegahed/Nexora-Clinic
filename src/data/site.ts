@@ -21,10 +21,6 @@ import derm from "@/assets/treatment-derm.jpg";
 import Rhinoplasty from "@/assets/treatment-rhinoplasty.jpg";
 import Liposuction from "@/assets/treatment-liposuction.jpg";
 import TummyTuck from "@/assets/Tummy-Tuck.jpg";
-import BeforeRhinoplasty from "@/assets/before-rhinoplasty.jpg";
-import AfterRhinoplasty from "@/assets/After-rhinoplasty.jpg";
-import BeforeLiposuction from "@/assets/before-liposuction.jpg";
-import AfterLiposuction from "@/assets/after-liposuction.jpg";
 import beforeDental from "@/assets/before-smile.jpg";
 import afterDental from "@/assets/after-smile.jpg";
 import beforeLoss from "@/assets/before-loss.jpg";
@@ -96,7 +92,6 @@ export const treatments: Treatment[] = [
     category: "Rhinoplasty",
     icon: Stethoscope,
     image: Rhinoplasty,
-    gallery: [BeforeRhinoplasty, AfterRhinoplasty],
     short: "A refined nose reshaping procedure designed around your facial balance and breathing needs.",
     overview:
       "Rhinoplasty is tailored to improve the shape, proportions and function of the nose while preserving a natural look. The surgeon may make small changes to the bridge, tip, nostrils or septum to create an elegant profile and improve airflow.",
@@ -135,7 +130,6 @@ export const treatments: Treatment[] = [
     category: "Liposuction",
     icon: Weight,
     image: Liposuction,
-    gallery: [BeforeLiposuction, AfterLiposuction, beforeLoss, afterLoss],
     short: "Body contouring to remove stubborn fat and improve definition in targeted areas.",
     overview:
       "Liposuction removes localised fat deposits that do not respond to exercise or diet. It is commonly used on the abdomen, waist, flanks, thighs and arms to sculpt a more balanced silhouette.",
@@ -609,9 +603,7 @@ export const packages = [
 
 export const beforeAfter = [
   { id: 1, category: "Dental", title: "Hollywood Smile", before: beforeDental, after: afterDental },
-  { id: 2, category: "Plastic Surgery", title: "Rhinoplasty refinement", before: BeforeRhinoplasty, after: AfterRhinoplasty },
-  { id: 3, category: "Plastic Surgery", title: "Liposuction contouring", before: BeforeLiposuction, after: AfterLiposuction },
-  { id: 4, category: "Plastic Surgery", title: "A visible body-contouring transformation", before: beforeLoss, after: afterLoss },
+  { id: 2, category: "Plastic Surgery", title: "A visible body-contouring transformation", before: beforeLoss, after: afterLoss },
 ];
 
 export const beforeAfterCategories = ["All", "Hair", "Dental", "Plastic Surgery", "Weight Loss"] as const;

@@ -115,8 +115,9 @@ export function MultiStepConsultation() {
             </div>
             <div>
               <Label htmlFor="s-whatsapp">WhatsApp number</Label>
-              <Input id="s-whatsapp" className="mt-2 rounded-xl" maxLength={30} value={values['whatsapp'] ?? ""} onChange={(e) => set("whatsapp", e.target.value)} />
+              <Input id="s-whatsapp" className="mt-2 rounded-xl" maxLength={30} placeholder="+20 100 000 0000" value={values['whatsapp'] ?? ""} onChange={(e) => set("whatsapp", e.target.value)} />
               {errors['whatsapp'] ? <p className="mt-1 text-xs text-destructive">{errors['whatsapp']}</p> : null}
+              <p className="mt-1 text-xs text-muted-foreground">Include your country code.</p>
             </div>
             <div>
               <Label htmlFor="s-country">Country</Label>
@@ -168,7 +169,7 @@ export function MultiStepConsultation() {
         {step === 2 ? (
           <>
             <div className="sm:col-span-2">
-              <Label htmlFor="s-history">Medical history & current medication</Label>
+              <Label htmlFor="s-history">Medical history &amp; current medication (optional)</Label>
               <Textarea
                 id="s-history"
                 rows={5}
@@ -213,9 +214,12 @@ export function MultiStepConsultation() {
 
         {step === 2 ? (
           <div className="sm:col-span-2">
-            <p className="mt-6 rounded-2xl bg-surface p-4 text-xs leading-relaxed text-muted-foreground">
-              By submitting you agree that Nexora Clinic may contact you about your enquiry. Your
-              medical information is handled confidentially and never shared without consent.
+            <label className="mt-6 flex items-start gap-2 text-xs text-muted-foreground">
+              <input type="checkbox" className="mt-0.5 h-4 w-4 rounded border-input" />
+              <span>I would like to receive occasional updates from Nexora Health.</span>
+            </label>
+            <p className="mt-4 text-xs leading-relaxed text-muted-foreground">
+              By submitting this form, you acknowledge our <Link to="/privacy" className="underline underline-offset-2">Privacy Notice</Link> and consent to Nexora Health processing your information to respond to your enquiry and provide relevant coordination services.
             </p>
           </div>
         ) : null}

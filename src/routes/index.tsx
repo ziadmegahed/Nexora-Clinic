@@ -32,6 +32,7 @@ import { JourneyTimeline } from "@/components/site/journey-timeline";
 import { BeforeAfterSlider } from "@/components/site/before-after-slider";
 import { ConsultationForm } from "@/components/site/consultation-form";
 import {
+  brand,
   beforeAfter,
   doctors,
   features,
@@ -98,7 +99,7 @@ function HomePage() {
                 </Link>
               </Button>
               <Button asChild size="lg" variant="outline" className="rounded-full px-7 font-semibold" target="_blank" rel="noreferrer">
-                <a href="https://wa.me/905524080841">Chat on WhatsApp</a>
+                <a href={brand.whatsappUrl}>Chat on WhatsApp</a>
               </Button>
             </div>
           </div>

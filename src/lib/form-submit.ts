@@ -1,4 +1,4 @@
-const FORM_SUBMIT_URL = "https://formsubmit.co/ajax/ziadmegahed074@gmail.com";
+const FORM_SUBMIT_URL = "https://formsubmit.co/ajax/care@nexoraclinic.com";
 const DEFAULT_SUBJECT = "Nexora Clinic enquiry";
 
 async function sendFormSubmitSubmission(values: Record<string, unknown>, subject: string) {

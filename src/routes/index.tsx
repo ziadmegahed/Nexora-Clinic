@@ -30,7 +30,6 @@ import { DoctorCard } from "@/components/site/doctor-card";
 import { TestimonialCard } from "@/components/site/testimonial-card";
 import { JourneyTimeline } from "@/components/site/journey-timeline";
 import { BeforeAfterSlider } from "@/components/site/before-after-slider";
-import { ConsultationForm } from "@/components/site/consultation-form";
 import {
   brand,
   beforeAfter,
@@ -247,21 +246,6 @@ function HomePage() {
         </div>
       </section>
 
-      {/* Consultation form */}
-      <section className="section bg-surface">
-        <div className="container-page grid items-start gap-12 lg:grid-cols-2">
-          <SectionHeading
-            align="left"
-            eyebrow="Free consultation"
-            title="Tell us what you would like to explore."
-            description="Send your treatment interest and preferred dates. Our coordination team will help you understand the next steps."
-            className="lg:sticky lg:top-32"
-          />
-          <Reveal>
-            <ConsultationForm compact />
-          </Reveal>
-        </div>
-      </section>
     </>
   );
 }

@@ -22,7 +22,7 @@ import Rhinoplasty from "@/assets/treatment-rhinoplasty.jpg";
 import Liposuction from "@/assets/treatment-liposuction.jpg";
 import TummyTuck from "@/assets/Tummy-Tuck.jpg";
 import BeforeRhinoplasty from "@/assets/before-rhinoplasty.jpg";
-import AfterRhinoplasty from "@/assets/after-rhinoplasty.jpg";
+import AfterRhinoplasty from "@/assets/After-rhinoplasty.jpg";
 import BeforeLiposuction from "@/assets/before-liposuction.jpg";
 import AfterLiposuction from "@/assets/after-liposuction.jpg";
 import beforeDental from "@/assets/before-smile.jpg";

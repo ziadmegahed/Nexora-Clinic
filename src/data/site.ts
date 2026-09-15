@@ -43,9 +43,9 @@ import baWeightAfter from "@/assets/ba-weight-after.jpg";
 export const brand = {
   name: "Nexora Healthcare",
   tagline: "Health • Beauty • Confidence",
-  email: "care@nexoraclinic.com",
-  phone: "+90 552 123 4567",
-  whatsapp: "+90 552 408 08 41",
+  email: "info@nexora-healthcare.com",
+  phone: "+905524080841",
+  whatsapp: "+905524080841",
   whatsappUrl: "https://wa.me/905524080841?text=Hello%20Nexora%20Health%2C%20I%20would%20like%20information%20about%20%5Btreatment%5D.%20Please%20explain%20the%20next%20steps%20for%20an%20evaluation.",
   address: "Levent Business Towers, Büyükdere Caddesi, Istanbul, Turkey",
   hours: "Mon – Sat, 9:00 – 19:00 (TRT) • Patient line open 24/7",

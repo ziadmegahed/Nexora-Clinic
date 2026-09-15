@@ -1,4 +1,4 @@
-const FORM_SUBMIT_URL = "https://formsubmit.co/ajax/care@nexoraclinic.com";
+const FORM_SUBMIT_URL = "https://formsubmit.co/ajax/info@nexora-healthcare.com";
 const DEFAULT_SUBJECT = "Nexora Clinic enquiry";
 
 async function sendFormSubmitSubmission(values: Record<string, unknown>, subject: string) {
@@ -7,8 +7,8 @@ async function sendFormSubmitSubmission(values: Record<string, unknown>, subject
     payload.set("_captcha", "false");
     payload.set("_template", "table");
 
-    if (typeof values.email === "string") {
-        payload.set("_replyto", values.email);
+    if (typeof values["email"] === "string") {
+        payload.set("_replyto", values["email"] as string);
     }
 
     for (const [key, value] of Object.entries(values)) {

@@ -37,6 +37,7 @@ export function MultiStepConsultation() {
   const [values, setValues] = useState<Values>({});
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [files, setFiles] = useState<File[]>([]);
+  const [marketingOptIn, setMarketingOptIn] = useState(false);
   const [done, setDone] = useState(false);
   const [sending, setSending] = useState(false);
 
@@ -201,9 +202,9 @@ export function MultiStepConsultation() {
               {files.length ? (
                 <ul className="mt-3 space-y-1 text-xs text-muted-foreground">
                   {files.map((f) => (
-                    <li key={f} className="flex items-center gap-2">
+                    <li key={`${f.name}-${f.lastModified}`} className="flex items-center gap-2">
                       <Check className="h-3.5 w-3.5 text-accent" aria-hidden />
-                      {f}
+                      {f.name}
                     </li>
                   ))}
                 </ul>
@@ -215,9 +216,16 @@ export function MultiStepConsultation() {
         {step === 2 ? (
           <div className="sm:col-span-2">
             <label className="mt-6 flex items-start gap-2 text-xs text-muted-foreground">
-              <input type="checkbox" className="mt-0.5 h-4 w-4 rounded border-input" />
+              <input
+                type="checkbox"
+                required
+                checked={marketingOptIn}
+                onChange={(event) => setMarketingOptIn(event.target.checked)}
+                className="mt-0.5 h-4 w-4 rounded border-input"
+              />
               <span>I would like to receive occasional updates from Nexora Health.</span>
             </label>
+            {errors['marketingOptIn'] ? <p className="mt-1 text-xs text-destructive">{errors['marketingOptIn']}</p> : null}
             <p className="mt-4 text-xs leading-relaxed text-muted-foreground">
               By submitting this form, you acknowledge our <Link to="/privacy" className="underline underline-offset-2">Privacy Notice</Link> and consent to Nexora Health processing your information to respond to your enquiry and provide relevant coordination services.
             </p>
@@ -251,6 +259,11 @@ export function MultiStepConsultation() {
                 const e: Record<string, string> = {};
                 for (const issue of parsed.error.issues) e[String(issue.path[0])] = issue.message;
                 setErrors(e);
+                return;
+              }
+
+              if (!marketingOptIn) {
+                setErrors({ marketingOptIn: "Please accept updates before submitting your request." });
                 return;
               }
 

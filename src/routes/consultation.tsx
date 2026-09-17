@@ -5,9 +5,9 @@ import { MultiStepConsultation } from "@/components/site/multi-step-consultation
 export const Route = createFileRoute("/consultation")({
   head: () => ({
     meta: [
-      { title: "Free Medical Consultation — Nexora Clinic Turkey" },
+      { title: "Free Medical Consultation — Nexora Healthcare Turkey" },
       { name: "description", content: "Request a free, no-obligation consultation. Share your case and receive a tailored clinical plan." },
-      { property: "og:title", content: "Free Medical Consultation — Nexora Clinic" },
+      { property: "og:title", content: "Free Medical Consultation — Nexora Healthcare" },
       { property: "og:description", content: "Four quick steps, with a responsive consultant review of your case." },
       { property: "og:url", content: "/consultation" },
     ],

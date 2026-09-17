@@ -1,30 +1,18 @@
 import type { LucideIcon } from "lucide-react";
-import {
-  Baby,
-  Bone,
-  HeartPulse,
-  Scissors,
-  Smile,
-  Sparkles,
-  Stethoscope,
-  Weight,
-} from "lucide-react";
+import { HeartPulse, Scissors, Smile, Sparkles, Stethoscope, Weight } from "lucide-react";
 
 import hair from "@/assets/treatment-hair.jpg";
 import dental from "@/assets/treatment-dental.jpg";
-import smile from "@/assets/treatment-smile.jpg";
 import plastic from "@/assets/treatment-plastic.jpg";
 import bariatric from "@/assets/treatment-bariatric.jpg";
-import ivf from "@/assets/treatment-ivf.jpg";
-import ortho from "@/assets/treatment-ortho.jpg";
-import derm from "@/assets/treatment-derm.jpg";
-import Rhinoplasty from "@/assets/treatment-rhinoplasty.jpg";
-import Liposuction from "@/assets/treatment-liposuction.jpg";
 import TummyTuck from "@/assets/Tummy-Tuck.jpg";
 import beforeDental from "@/assets/before-smile.jpg";
 import afterDental from "@/assets/after-smile.jpg";
 import beforeLoss from "@/assets/before-loss.jpg";
 import afterLoss from "@/assets/after-loss.jpg";
+import beforeBL1 from "@/assets/beforeBL1.jpg";
+import afterBL1 from "@/assets/afterBL1.jpg";
+
 
 import doc1 from "@/assets/doctor-1.jpg";
 import doc2 from "@/assets/doctor-2.jpg";
@@ -52,13 +40,11 @@ export const brand = {
 };
 
 export const treatmentCategories = [
-  "Rhinoplasty",
-  "Liposuction",
-  "Tummy Tuck",
-  "Breast Augmentation",
-  "Hair Transplant",
-  "Gastric Sleeve",
+  "Hair transplant",
+  "Aesthetics operations",
+  "Obesity treatments",
   "Dental Treatments",
+  "Check-Ups",
 ] as const;
 
 export type TreatmentCategory = (typeof treatmentCategories)[number];
@@ -85,54 +71,54 @@ export type Treatment = {
   doctorSlugs: string[];
 };
 
-export const treatments: Treatment[] = [
+export const treatments: Treatment[] = ([
   {
-    slug: "rhinoplasty",
-    name: "Rhinoplasty",
-    category: "Rhinoplasty",
-    icon: Stethoscope,
-    image: Rhinoplasty,
-    short: "A refined nose reshaping procedure designed around your facial balance and breathing needs.",
+    slug: "aesthetics-operations",
+    name: "Aesthetics operations",
+    category: "Aesthetics operations",
+    icon: Sparkles,
+    image: plastic,
+    short: "Breast, body and facial procedures planned around your anatomy and aesthetic goals.",
     overview:
-      "Rhinoplasty is tailored to improve the shape, proportions and function of the nose while preserving a natural look. The surgeon may make small changes to the bridge, tip, nostrils or septum to create an elegant profile and improve airflow.",
+      "Our aesthetics operations include Breast augmentation, Breast lift + implant, Breast reduction, Tummy Tuck + Liposuction, BBL, Facial rejuvenation, Otoplasty, Gynecomastia and Arm lift. Each option is planned around your anatomy, health and desired outcome after a specialist consultation.",
     whoFor: [
-      "Patients unhappy with nose size, shape or asymmetry",
-      "Individuals with breathing issues caused by a deviated septum",
-      "Adults with stable facial growth and realistic expectations",
+      "Adults considering breast, body or facial aesthetic surgery",
+      "Patients seeking a combined or staged procedure plan",
+      "Candidates who are medically suitable after individual assessment",
     ],
     benefits: [
-      "Improves facial harmony",
-      "Can support better breathing",
-      "Natural-looking contour changes",
-      "Performed by senior facial surgeons",
+      "Breast, body and facial procedure options",
+      "Individual surgical and recovery planning",
+      "Clear discussion of combinations and staging",
+      "Specialist-led aesthetic care",
     ],
     steps: [
-      { title: "Consultation and planning", text: "You review before-and-after references, facial proportions and surgical goals with the surgeon." },
-      { title: "Pre-operative assessment", text: "Medical tests and bloodwork are reviewed before surgery, and a final plan is confirmed." },
-      { title: "Surgery", text: "The procedure is performed under general anaesthesia with precise reshaping of bone and cartilage." },
-      { title: "Recovery and follow-up", text: "The nose is splinted, swelling is monitored, and your recovery plan is reviewed before you fly home." },
+      { title: "Choose the procedure type", text: "Discuss Breast augmentation, Breast lift + implant, Breast reduction, Tummy Tuck + Liposuction, BBL, Facial rejuvenation, Otoplasty, Gynecomastia or Arm lift." },
+      { title: "Clinical assessment", text: "The surgeon reviews your medical history, anatomy, goals and whether combining procedures is appropriate." },
+      { title: "Surgical planning", text: "Technique, anaesthesia, hospital arrangements and recovery expectations are explained before a written plan is issued." },
+      { title: "Follow-up", text: "Post-operative checks and recovery guidance are arranged according to the procedures included in your plan." },
     ],
-    operationDuration: "1.5 to 3 hours",
-    hospitalStay: "1 night",
-    recoveryPeriod: "2 to 6 weeks",
-    recovery: "Most swelling settles within the first few weeks, while final refinement continues over several months.",
-    risks: ["Swelling and bruising", "Temporary numbness or congestion", "Scar tissue formation in rare cases", "Need for minor revision in selected cases"],
-    results: "A more balanced and natural-looking nose with improved function and a subtle, refined profile.",
+    operationDuration: "Varies by procedure or combination",
+    hospitalStay: "Same day to 2 nights",
+    recoveryPeriod: "2 to 8 weeks",
+    recovery: "Recovery depends on the selected operation and whether procedures are combined. Your surgeon gives procedure-specific guidance.",
+    risks: ["Swelling and bruising", "Temporary numbness", "Scarring or delayed wound healing", "Procedure-specific risks discussed during consultation"],
+    results: "A balanced aesthetic result guided by your anatomy, treatment goals and clinical assessment.",
     faqs: [
-      { q: "Will the result look natural?", a: "Yes. We focus on proportional changes that suit your face rather than creating an overdone look." },
-      { q: "When can I travel home?", a: "Most patients are cleared to fly once their surgeon confirms swelling and healing are progressing normally." },
+      { q: "Which aesthetic operations are available?", a: "Breast augmentation, Breast lift + implant, Breast reduction, Tummy Tuck + Liposuction, BBL, Facial rejuvenation, Otoplasty, Gynecomastia and Arm lift." },
+      { q: "Can procedures be combined?", a: "Some procedures can be combined safely for suitable patients, while others are better staged. The surgeon confirms this after assessment." },
     ],
     doctorSlugs: ["mehmet-kaya"],
   },
   {
-    slug: "liposuction",
-    name: "Liposuction",
-    category: "Liposuction",
-    icon: Weight,
-    image: Liposuction,
-    short: "Body contouring to remove stubborn fat and improve definition in targeted areas.",
+    slug: "hair-transplant",
+    name: "Hair transplant",
+    category: "Hair transplant",
+    icon: Scissors,
+    image: hair,
+    short: "Natural-looking hair restoration with Sapphire FUE and DHI techniques.",
     overview:
-      "Liposuction removes localised fat deposits that do not respond to exercise or diet. It is commonly used on the abdomen, waist, flanks, thighs and arms to sculpt a more balanced silhouette.",
+      "Hair transplant treatment restores thinning areas using your own donor follicles. Your plan may include Sapphire FUE or DHI, with the hairline, graft count and placement designed around your facial proportions and donor density.",
     whoFor: [
       "Patients near their target weight with stubborn fat pockets",
       "Adults wanting body contouring without a full body lift",
@@ -163,14 +149,14 @@ export const treatments: Treatment[] = [
     doctorSlugs: ["mehmet-kaya"],
   },
   {
-    slug: "tummy-tuck",
-    name: "Tummy Tuck",
-    category: "Tummy Tuck",
-    icon: Bone,
-    image: TummyTuck,
-    short: "Abdominoplasty that tightens the abdominal wall and removes excess skin for a firmer contour.",
+    slug: "obesity-treatments",
+    name: "Obesity treatments",
+    category: "Obesity treatments",
+    icon: HeartPulse,
+    image: bariatric,
+    short: "Clinician-led Weight loss support with assessment, treatment planning and long-term follow-up.",
     overview:
-      "A tummy tuck, or abdominoplasty, removes excess skin and tightens weakened abdominal muscles to create a flatter, firmer midsection. It is often chosen after weight changes, pregnancy or significant abdominal stretching.",
+      "Our obesity treatments focus on sustainable Weight loss through medical assessment, nutrition support and appropriate bariatric options. The specialist confirms which approach is suitable for your BMI, health conditions and long-term goals.",
     whoFor: [
       "Patients with loose abdominal skin after weight loss or pregnancy",
       "Adults with weakened abdominal muscles",
@@ -201,14 +187,15 @@ export const treatments: Treatment[] = [
     doctorSlugs: ["mehmet-kaya"],
   },
   {
-    slug: "breast-augmentation",
-    name: "Breast Augmentation",
-    category: "Breast Augmentation",
-    icon: Sparkles,
-    image: plastic,
-    short: "Implant-based breast enhancement to add volume and improve symmetry and shape.",
+    slug: "dental-treatments",
+    name: "Dental Treatments",
+    category: "Dental Treatments",
+    icon: Smile,
+    image: dental,
+    gallery: [beforeDental, afterDental],
+    short: "Personalised Dental care for function, comfort and a confident smile.",
     overview:
-      "Breast augmentation enhances breast size, balance and projection using silicone or saline implants selected to match your anatomy and aesthetic goals. The procedure is tailored to create a natural, proportionate result with a careful incision and implant plan.",
+      "Dental treatment combines examination, digital planning and restorative or cosmetic care based on your oral health. The dental team discusses your concerns, available options and the number of visits needed before treatment begins.",
     whoFor: [
       "Patients seeking fuller, more balanced breasts",
       "Women with breast volume loss after pregnancy or weight changes",
@@ -239,14 +226,14 @@ export const treatments: Treatment[] = [
     doctorSlugs: ["mehmet-kaya"],
   },
   {
-    slug: "hair-transplant",
-    name: "Hair Transplant",
-    category: "Hair Transplant",
-    icon: Scissors,
-    image: hair,
-    short: "Sapphire FUE and DHI techniques for natural-looking hair restoration.",
+    slug: "check-ups",
+    name: "Check-Ups",
+    category: "Check-Ups",
+    icon: Stethoscope,
+    image: TummyTuck,
+    short: "Preventive health assessments to understand your current health and next steps.",
     overview:
-      "Our surgeons use Sapphire FUE and DHI techniques to relocate your own resistant follicles to thinning areas, rebuilding a hairline designed around your facial proportions. Grafts are placed one by one for a density and direction that look entirely natural.",
+      "Check-Ups provide a structured review of your health, symptoms, medical history and risk factors. The exact assessment is tailored to your age, goals and clinical needs, with referrals or further investigations arranged when appropriate.",
     whoFor: [
       "Men and women with androgenetic hair loss",
       "Receding hairlines, crown thinning or scarred areas",
@@ -278,13 +265,13 @@ export const treatments: Treatment[] = [
   },
   {
     slug: "gastric-sleeve",
-    name: "Gastric Sleeve",
-    category: "Gastric Sleeve",
+    name: "Obesity Treatments",
+    category: "Obesity treatments",
     icon: HeartPulse,
     image: bariatric,
     short: "A minimally invasive weight-loss surgery that reduces stomach size and helps control appetite.",
     overview:
-      "Gastric sleeve surgery reduces the stomach to a smaller tube-shaped pouch, limiting food intake and improving satiety. It is a well-established bariatric option that supports meaningful and sustained weight reduction when paired with long-term lifestyle changes.",
+      "Obesity surgery reduces the stomach to a smaller tube-shaped pouch, limiting food intake and improving satiety. It is a well-established bariatric option that supports meaningful and sustained weight reduction when paired with long-term lifestyle changes.",
     whoFor: [
       "Patients with BMI over 35, or over 30 with obesity-related conditions",
       "Individuals who have not achieved lasting results with diet and exercise",
@@ -353,7 +340,7 @@ export const treatments: Treatment[] = [
     ],
     doctorSlugs: ["elif-demir"],
   },
-];
+] as Treatment[]).slice(0, 5);
 
 export type Doctor = {
   slug: string;
@@ -378,7 +365,7 @@ export const doctors: Doctor[] = [
     slug: "erdal-sakalli",
     name: "Assoc. Prof. MD. Erdal Sakalli",
     specialty: "Ear, Nose, and Throat (ENT)",
-    category: "Rhinoplasty",
+    category: "Aesthetics operations",
     years: 17,
     rating: 4.9,
     reviews: 412,
@@ -395,7 +382,7 @@ export const doctors: Doctor[] = [
     slug: "yakup-cil",
     name: "Prof. MD. Yakup Çil",
     specialty: "Medical Aesthetics",
-    category: "Rhinoplasty",
+    category: "Aesthetics operations",
     years: 22,
     rating: 5.0,
     reviews: 498,
@@ -412,7 +399,7 @@ export const doctors: Doctor[] = [
     slug: "ali-can-gunenc",
     name: "OP. Dr. Ali Can Gunenc",
     specialty: "Plastic Surgery",
-    category: "Liposuction",
+    category: "Aesthetics operations",
     years: 20,
     rating: 4.9,
     reviews: 385,
@@ -429,7 +416,7 @@ export const doctors: Doctor[] = [
     slug: "hakan-seyit",
     name: "Prof. Dr. Hakan Seyit",
     specialty: "General Surgery",
-    category: "Gastric Sleeve",
+    category: "Obesity treatments",
     years: 19,
     rating: 4.8,
     reviews: 360,
@@ -446,7 +433,7 @@ export const doctors: Doctor[] = [
     slug: "halil-alis",
     name: "Prof. MD. Halil Aliş",
     specialty: "Surgical Oncology",
-    category: "Gastric Sleeve",
+    category: "Obesity treatments",
     years: 18,
     rating: 4.9,
     reviews: 420,
@@ -463,7 +450,7 @@ export const doctors: Doctor[] = [
     slug: "akin-zengin",
     name: "Dr. Öğr. Üyesi Akın Zengin",
     specialty: "Ear, Nose, and Throat (ENT)",
-    category: "Rhinoplasty",
+    category: "Aesthetics operations",
     years: 15,
     rating: 4.9,
     reviews: 319,
@@ -572,7 +559,7 @@ export const packages = [
     price: "",
     note: "20 E-max veneers • Premium recovery support",
     features: ["Consultation & 3D scan", "Digital smile design", "Hotel with breakfast", "Airport & clinic transfers", "Interpreter throughout"],
-    slug: "hollywood-smile",
+    slug: "dental-treatments",
     featured: false,
   },
   {
@@ -588,25 +575,51 @@ export const packages = [
     price: "",
     note: "Surgery + recovery support",
     features: ["Pre-op tests & anaesthesia", "JCI hospital theatre", "Compression garments", "Nurse home visits", "Clearance-to-fly check"],
-    slug: "plastic-surgery",
+    slug: "aesthetics-operations",
     featured: false,
   },
   {
     name: "Weight Loss Package",
     price: "",
-    note: "Gastric sleeve • Medical aftercare included",
+    note: "Obesity treatment • Medical aftercare included",
     features: ["Full pre-op work-up", "Laparoscopic surgery", "Hospital and hotel arrangements", "Dietitian programme", "Ongoing review support"],
-    slug: "bariatric-surgery",
+    slug: "obesity-treatments",
     featured: false,
   },
 ];
 
 export const beforeAfter = [
-  { id: 1, category: "Dental", title: "Hollywood Smile", before: beforeDental, after: afterDental },
-  { id: 2, category: "Plastic Surgery", title: "A visible body-contouring transformation", before: beforeLoss, after: afterLoss },
+  { id: 1, category: "Dental Treatments", treatment: "Dental", title: "Hollywood Smile", before: beforeDental, after: afterDental },
+  { id: 2, category: "Aesthetic Operations", treatment: "Tummy Tuck + Liposuction", title: "A visible body-contouring transformation", before: beforeLoss, after: afterLoss },
+  { id: 3, category: "Aesthetic Operations", treatment: "BBL", before: beforeLoss, after: afterLoss },
+  { id: 4, category: "Aesthetic Operations", treatment: "Breast Lift + Implant", before: beforeBL1, after: afterBL1 },
 ];
 
-export const beforeAfterCategories = ["All", "Hair", "Dental", "Plastic Surgery", "Weight Loss"] as const;
+export const beforeAfterCategories = [
+  "Hair Transplant",
+  "Aesthetic Operations",
+  "Obesity Treatments",
+  "Dental Treatments",
+  "Check-Ups",
+] as const;
+
+export const beforeAfterTreatments = {
+  "Hair Transplant": ["Hair Transplant"],
+  "Aesthetic Operations": [
+    "Breast Augmentation",
+    "Breast Lift + Implant",
+    "Breast Reduction",
+    "Tummy Tuck + Liposuction",
+    "BBL",
+    "Facial Rejuvenation",
+    "Otoplasty",
+    "Gynecomastia",
+    "Arm Lift",
+  ],
+  "Obesity Treatments": ["Weight Loss"],
+  "Dental Treatments": ["Dental"],
+  "Check-Ups": [],
+} as const;
 
 export const faqCategories = ["Travel", "Treatment", "Accommodation", "Payments", "Recovery", "Doctors"] as const;
 

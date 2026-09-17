@@ -5,7 +5,7 @@ import { PageHero } from "@/components/site/page-hero";
 import { Reveal } from "@/components/site/reveal";
 import { BeforeAfterSlider } from "@/components/site/before-after-slider";
 import { CtaSection } from "@/components/site/cta-section";
-import { beforeAfter, beforeAfterCategories } from "@/data/site";
+import { beforeAfter, beforeAfterCategories, beforeAfterTreatments } from "@/data/site";
 import { cn } from "@/lib/utils";
 
 export const Route = createFileRoute("/before-after")({
@@ -23,8 +23,12 @@ export const Route = createFileRoute("/before-after")({
 });
 
 function BeforeAfterPage() {
-  const [filter, setFilter] = useState<string>("All");
-  const items = beforeAfter.filter((i) => filter === "All" || i.category === filter);
+  const [filter, setFilter] = useState<string>(beforeAfterCategories[0]);
+  const [topic, setTopic] = useState<string>(beforeAfterTreatments["Aesthetic Operations"][0]);
+  const isAestheticOperations = filter === "Aesthetic Operations";
+  const items = beforeAfter.filter(
+    (item) => item.category === filter && (!isAestheticOperations || item.treatment === topic),
+  );
 
   return (
     <>
@@ -38,51 +42,91 @@ function BeforeAfterPage() {
       <section className="section">
         <div className="container-page">
           <div className="flex flex-wrap gap-2">
-            {beforeAfterCategories.map((c) => (
+            {beforeAfterCategories.map((category) => (
               <button
-                key={c}
+                key={category}
                 type="button"
-                onClick={() => setFilter(c)}
-                aria-pressed={filter === c}
+                onClick={() => {
+                  setFilter(category);
+                  if (category === "Aesthetic Operations") {
+                    setTopic(beforeAfterTreatments["Aesthetic Operations"][0]);
+                  }
+                }}
+                aria-pressed={filter === category}
                 className={cn(
                   "rounded-full px-4 py-2 text-sm font-medium transition-colors",
-                  filter === c
+                  filter === category
                     ? "gradient-brand text-primary-foreground"
                     : "border border-border bg-card text-muted-foreground hover:text-primary",
                 )}
               >
-                {c}
+                {category}
               </button>
             ))}
           </div>
 
-          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {items.map((item, i) => (
-              <Reveal key={item.id} delay={(i % 3) * 70}>
-                <figure className="overflow-hidden rounded-3xl border border-border bg-card p-4 shadow-soft">
-                  <BeforeAfterSlider before={item.before} after={item.after} alt={`${item.title} ${item.id}`} />
-                  <figcaption className="flex items-end justify-between gap-3 px-1 pt-4 pb-1">
-                    <span>
-                      <span className="text-xs font-semibold tracking-wide text-primary uppercase">{item.category}</span>
-                      <span className="mt-1 block font-display text-base font-bold">{item.title}</span>
-                    </span>
-                    <Dialog>
-                      <DialogTrigger className="rounded-full border border-border px-3 py-1.5 text-xs font-medium transition-colors hover:bg-muted">
-                        Enlarge
-                      </DialogTrigger>
-                      <DialogContent className="max-w-3xl">
-                        <DialogTitle className="font-display">{item.title}</DialogTitle>
-                        <div className="grid gap-4 sm:grid-cols-2">
-                          <img src={item.before} alt={`${item.title} before`} loading="lazy" width={800} height={800} className="w-full rounded-2xl" />
-                          <img src={item.after} alt={`${item.title} after`} loading="lazy" width={800} height={800} className="w-full rounded-2xl" />
-                        </div>
-                      </DialogContent>
-                    </Dialog>
-                  </figcaption>
-                </figure>
-              </Reveal>
-            ))}
+          <div className="mt-8">
+            <h2 className="font-display text-xl font-bold">{filter} treatments</h2>
+            {beforeAfterTreatments[filter as keyof typeof beforeAfterTreatments].length ? (
+              <div className="mt-4 flex flex-wrap gap-2">
+                {beforeAfterTreatments[filter as keyof typeof beforeAfterTreatments].map((treatment) => (
+                  <button
+                    key={treatment}
+                    type="button"
+                    onClick={() => setTopic(treatment)}
+                    aria-pressed={isAestheticOperations && topic === treatment}
+                    className={cn(
+                      "rounded-full px-3 py-1.5 text-sm transition-colors",
+                      isAestheticOperations && topic === treatment
+                        ? "gradient-brand text-primary-foreground"
+                        : "border border-border bg-card text-muted-foreground hover:text-primary",
+                    )}
+                  >
+                    {treatment}
+                  </button>
+                ))}
+              </div>
+            ) : (
+              <p className="mt-2 text-sm text-muted-foreground">No treatments are listed for this category yet.</p>
+            )}
           </div>
+
+          {items.length ? (
+            <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {items.map((item, i) => (
+                <Reveal key={item.id} delay={(i % 3) * 70}>
+                  <figure className="overflow-hidden rounded-3xl border border-border bg-card p-4 shadow-soft">
+                    <BeforeAfterSlider before={item.before} after={item.after} alt={`${item.title} ${item.id}`} />
+                    <figcaption className="flex items-end justify-between gap-3 px-1 pt-4 pb-1">
+                      <span>
+                        <span className="text-xs font-semibold tracking-wide text-primary uppercase">{item.category}</span>
+                        <span className="mt-1 block font-display text-base font-bold">{item.title}</span>
+                      </span>
+                      <Dialog>
+                        <DialogTrigger className="rounded-full border border-border px-3 py-1.5 text-xs font-medium transition-colors hover:bg-muted">
+                          Enlarge
+                        </DialogTrigger>
+                        <DialogContent className="max-w-3xl">
+                          <DialogTitle className="font-display">{item.title}</DialogTitle>
+                          <div className="grid gap-4 sm:grid-cols-2">
+                            <img src={item.before} alt={`${item.title} before`} loading="lazy" width={800} height={800} className="w-full rounded-2xl" />
+                            <img src={item.after} alt={`${item.title} after`} loading="lazy" width={800} height={800} className="w-full rounded-2xl" />
+                          </div>
+                        </DialogContent>
+                      </Dialog>
+                    </figcaption>
+                  </figure>
+                </Reveal>
+              ))}
+            </div>
+          ) : (
+            <div className="mt-10 rounded-3xl border border-dashed border-border bg-card p-10 text-center shadow-soft">
+              <h2 className="font-display text-xl font-bold">No patient results published yet</h2>
+              <p className="mx-auto mt-2 max-w-md text-sm leading-relaxed text-muted-foreground">
+                Results for {filter} will appear here as new patient cases are published with written consent.
+              </p>
+            </div>
+          )}
         </div>
       </section>
 

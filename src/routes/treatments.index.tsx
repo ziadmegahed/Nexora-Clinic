@@ -13,7 +13,7 @@ export const Route = createFileRoute("/treatments/")({
   head: () => ({
     meta: [
       { title: "Treatments in Turkey — Nexora Clinic" },
-      { name: "description", content: "Hair transplant, dental implants, Hollywood smile, plastic surgery, bariatric surgery, IVF, orthopedics and dermatology in Turkey." },
+      { name: "description", content: "Hair transplant, aesthetics operations, obesity treatments, Dental Treatments and Check-Ups in Turkey." },
       { property: "og:title", content: "Treatments in Turkey — Nexora Clinic" },
       { property: "og:description", content: "Browse all treatments with clinical details, recovery expectations and care pathways." },
       { property: "og:url", content: "/treatments" },

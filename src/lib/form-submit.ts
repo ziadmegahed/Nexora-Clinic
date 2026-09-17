@@ -1,53 +1,116 @@
-const FORM_SUBMIT_URL = "https://formsubmit.co/ajax/info@nexora-healthcare.com";
-const DEFAULT_SUBJECT = "Nexora Clinic enquiry";
+const FORM_SUBMIT_URL =
+    "https://formsubmit.co/ajax/info@nexora-healthcare.com";
 
-async function sendFormSubmitSubmission(values: Record<string, unknown>, subject: string) {
-    const payload = new FormData();
-    payload.set("_subject", subject);
-    payload.set("_captcha", "false");
-    payload.set("_template", "table");
+async function sendFormSubmitSubmission(
+    values: Record<string, unknown>,
+    subject: string
+) {
+    const formData = new FormData();
 
-    if (typeof values["email"] === "string") {
-        payload.set("_replyto", values["email"] as string);
+    formData.append("_subject", subject);
+    formData.append("_captcha", "false");
+    formData.append("_template", "table");
+
+    if (typeof values["email"] === "string" && values["email"].trim()) {
+        formData.append("_replyto", values["email"]);
     }
 
     for (const [key, value] of Object.entries(values)) {
-        if (value === null || value === undefined) continue;
+        if (value === null || value === undefined) {
+            continue;
+        }
+
+        // Handle array
         if (Array.isArray(value)) {
-            if (value.length === 0) {
-                continue;
-            }
-            if (value.every((item) => item instanceof File || item instanceof Blob)) {
-                for (const item of value) {
-                    payload.append(key, item as File | Blob, item instanceof File ? item.name : "attachment");
+            for (const item of value) {
+                if (item instanceof File) {
+                    console.log("ADDING FILE:", {
+                        key,
+                        name: item.name,
+                        size: item.size,
+                        type: item.type,
+                    });
+
+                    formData.append("attachment", item, item.name);
                 }
-                continue;
             }
-            payload.set(key, value.join(", "));
-        } else if (value instanceof File || value instanceof Blob) {
-            payload.append(key, value, value instanceof File ? value.name : "attachment");
+
+            // Normal array values
+            if (
+                value.length > 0 &&
+                !value.some((item) => item instanceof File)
+            ) {
+                formData.append(key, value.join(", "));
+            }
+
+            continue;
+        }
+
+        // Handle single File
+        if (value instanceof File) {
+            console.log("ADDING SINGLE FILE:", {
+                key,
+                name: value.name,
+                size: value.size,
+                type: value.type,
+            });
+
+            formData.append("attachment", value, value.name);
+            continue;
+        }
+
+        // Normal fields
+        formData.append(key, String(value));
+    }
+
+    // DEBUG: show exactly what will be sent
+    console.log("========== FORM DATA ==========");
+
+    for (const [key, value] of formData.entries()) {
+        if (value instanceof File) {
+            console.log("FILE SENT:", {
+                key,
+                name: value.name,
+                size: value.size,
+                type: value.type,
+            });
         } else {
-            payload.set(key, String(value));
+            console.log("FIELD SENT:", key, value);
         }
     }
 
+    console.log("================================");
+
     const response = await fetch(FORM_SUBMIT_URL, {
         method: "POST",
-        body: payload,
+        body: formData,
     });
 
     if (!response.ok) {
         const text = await response.text().catch(() => "");
-        throw new Error(`FormSubmit returned ${response.status}: ${text}`);
+
+        throw new Error(
+            `FormSubmit returned ${response.status}: ${text}`
+        );
     }
 
-    return response;
+    return response.json();
 }
 
-export function sendConsultationSubmission(values: Record<string, unknown>) {
-    return sendFormSubmitSubmission(values, "Nexora Clinic consultation request");
+export function sendConsultationSubmission(
+    values: Record<string, unknown>
+) {
+    return sendFormSubmitSubmission(
+        values,
+        "Nexora Health consultation request"
+    );
 }
 
-export function sendContactSubmission(values: Record<string, unknown>) {
-    return sendFormSubmitSubmission(values, "Nexora Clinic contact enquiry");
+export function sendContactSubmission(
+    values: Record<string, unknown>
+) {
+    return sendFormSubmitSubmission(
+        values,
+        "Nexora Health contact enquiry"
+    );
 }

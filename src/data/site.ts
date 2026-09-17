@@ -10,8 +10,8 @@ import beforeDental from "@/assets/before-smile.jpg";
 import afterDental from "@/assets/after-smile.jpg";
 import beforeLoss from "@/assets/before-loss.jpg";
 import afterLoss from "@/assets/after-loss.jpg";
-import beforeBL1 from "@/assets/beforeBL1.jpg";
-import afterBL1 from "@/assets/afterBL1.jpg";
+import beforeBL1 from "@/assets/beforeBreastL1.jpg";
+import afterBL1 from "@/assets/afterBreastL1.jpg";
 
 
 import doc1 from "@/assets/doctor-1.jpg";

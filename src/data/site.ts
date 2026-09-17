@@ -10,8 +10,6 @@ import beforeDental from "@/assets/before-smile.jpg";
 import afterDental from "@/assets/after-smile.jpg";
 import beforeLoss from "@/assets/before-loss.jpg";
 import afterLoss from "@/assets/after-loss.jpg";
-import beforeBL1 from "@/assets/beforeBreastL1.jpg";
-import afterBL1 from "@/assets/afterBreastL1.jpg";
 
 
 import doc1 from "@/assets/doctor-1.jpg";
@@ -592,7 +590,6 @@ export const beforeAfter = [
   { id: 1, category: "Dental Treatments", treatment: "Dental", title: "Hollywood Smile", before: beforeDental, after: afterDental },
   { id: 2, category: "Aesthetic Operations", treatment: "Tummy Tuck + Liposuction", title: "A visible body-contouring transformation", before: beforeLoss, after: afterLoss },
   { id: 3, category: "Aesthetic Operations", treatment: "BBL", before: beforeLoss, after: afterLoss },
-  { id: 4, category: "Aesthetic Operations", treatment: "Breast Lift + Implant", before: beforeBL1, after: afterBL1 },
 ];
 
 export const beforeAfterCategories = [

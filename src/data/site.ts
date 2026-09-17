@@ -12,7 +12,10 @@ import beforeLoss from "@/assets/before-loss.jpg";
 import afterLoss from "@/assets/after-loss.jpg";
 import beforeBL1 from "@/assets/beforeBL1.jpg";
 import afterBL1 from "@/assets/afterBL1.jpg";
-
+import beforeotoplasty1 from "@/assets/beforeotoplasty.jpg";
+import afterotoplasty1 from "@/assets/afterotoplasty.jpg";
+import beforefacial1 from "@/assets/beforefacial1.jpg";
+import afterfacial1 from "@/assets/afterfacial1.jpg";
 
 import doc1 from "@/assets/doctor-1.jpg";
 import doc2 from "@/assets/doctor-2.jpg";
@@ -593,6 +596,8 @@ export const beforeAfter = [
   { id: 2, category: "Aesthetic Operations", treatment: "Tummy Tuck + Liposuction", title: "A visible body-contouring transformation", before: beforeLoss, after: afterLoss },
   { id: 3, category: "Aesthetic Operations", treatment: "BBL", before: beforeLoss, after: afterLoss },
   { id: 4, category: "Aesthetic Operations", treatment: "Breast Lift + Implant", title: "Breast lift transformation", before: beforeBL1, after: afterBL1 },
+  { id: 5, category: "Aesthetic Operations", treatment: "Otoplasty", title: "Ear reshaping transformation", before: beforeotoplasty1, after: afterotoplasty1 },
+  { id: 6, category: "Aesthetic Operations", treatment: "Facial Rejuvenation", title: "Facial rejuvenation transformation", before: beforefacial1, after: afterfacial1 },
 ];
 
 export const beforeAfterCategories = [

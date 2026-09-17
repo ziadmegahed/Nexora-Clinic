@@ -109,8 +109,12 @@ function BeforeAfterPage() {
                         <DialogContent className="max-w-3xl">
                           <DialogTitle className="font-display">{item.title}</DialogTitle>
                           <div className="grid gap-4 sm:grid-cols-2">
-                            <img src={item.before} alt={`${item.title} before`} loading="lazy" width={800} height={800} className="w-full rounded-2xl" />
-                            <img src={item.after} alt={`${item.title} after`} loading="lazy" width={800} height={800} className="w-full rounded-2xl" />
+                            <div className="aspect-square rounded-2xl bg-muted">
+                              <img src={item.before} alt={`${item.title} before`} loading="lazy" width={800} height={800} className="h-full w-full rounded-2xl object-contain" />
+                            </div>
+                            <div className="aspect-square rounded-2xl bg-muted">
+                              <img src={item.after} alt={`${item.title} after`} loading="lazy" width={800} height={800} className="h-full w-full rounded-2xl object-contain" />
+                            </div>
                           </div>
                         </DialogContent>
                       </Dialog>

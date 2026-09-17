@@ -40,7 +40,7 @@ export function BeforeAfterSlider({
         loading="lazy"
         width={800}
         height={800}
-        className="absolute inset-0 h-full w-full object-cover"
+        className="absolute inset-0 h-full w-full object-contain"
       />
       <div className="absolute inset-0 overflow-hidden" style={{ width: `${pos}%` }}>
         <img
@@ -49,7 +49,7 @@ export function BeforeAfterSlider({
           loading="lazy"
           width={800}
           height={800}
-          className="h-full w-full object-cover"
+          className="h-full w-full object-contain"
           style={{ width: ref.current?.clientWidth ? `${ref.current.clientWidth}px` : "100%" }}
         />
       </div>

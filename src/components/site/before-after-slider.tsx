@@ -42,17 +42,15 @@ export function BeforeAfterSlider({
         height={800}
         className="absolute inset-0 h-full w-full object-contain"
       />
-      <div className="absolute inset-0 overflow-hidden" style={{ width: `${pos}%` }}>
-        <img
-          src={before}
-          alt={`${alt} — before treatment`}
-          loading="lazy"
-          width={800}
-          height={800}
-          className="h-full w-full object-contain"
-          style={{ width: ref.current?.clientWidth ? `${ref.current.clientWidth}px` : "100%" }}
-        />
-      </div>
+      <img
+        src={before}
+        alt={`${alt} — before treatment`}
+        loading="lazy"
+        width={800}
+        height={800}
+        className="absolute inset-0 h-full w-full object-contain"
+        style={{ clipPath: `inset(0 ${100 - pos}% 0 0)` }}
+      />
 
       <span className="pointer-events-none absolute top-3 left-3 rounded-full bg-foreground/70 px-2.5 py-1 text-[11px] font-semibold tracking-wide text-background uppercase">
         Before

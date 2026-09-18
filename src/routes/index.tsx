@@ -127,11 +127,19 @@ function HomePage() {
             description="Every plan is prepared with a fully itemised clinical pathway and support package."
           />
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {treatments.map((t, i) => (
+            {treatments.slice(0, 2).map((t, i) => (
               <Reveal key={t.slug} delay={(i % 4) * 70}>
                 <TreatmentCard treatment={t} />
               </Reveal>
             ))}
+          </div>
+          <div className="mt-10 flex justify-center">
+            <Button asChild variant="outline" className="rounded-full px-6 font-semibold">
+              <Link to="/treatments">
+                See more treatments
+                <ArrowRight className="ml-1 h-4 w-4" aria-hidden />
+              </Link>
+            </Button>
           </div>
         </div>
       </section>
@@ -185,11 +193,19 @@ function HomePage() {
             title="Consultants selected on outcomes, not marketing"
           />
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {doctors.map((d, i) => (
+            {doctors.slice(0, 2).map((d, i) => (
               <Reveal key={d.slug} delay={(i % 4) * 70}>
                 <DoctorCard doctor={d} />
               </Reveal>
             ))}
+          </div>
+          <div className="mt-10 flex justify-center">
+            <Button asChild variant="outline" className="rounded-full px-6 font-semibold">
+              <Link to="/doctors">
+                See more doctors
+                <ArrowRight className="ml-1 h-4 w-4" aria-hidden />
+              </Link>
+            </Button>
           </div>
           <Reveal className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {hospitals.map((h) => (
@@ -236,13 +252,6 @@ function HomePage() {
             </Button>
           </div>
 
-          <div className="mt-12 rounded-3xl border border-border bg-card p-6 shadow-soft md:p-8">
-            <h3 className="font-display text-2xl font-bold tracking-tight">Know what your plan includes</h3>
-            <p className="mt-4 max-w-3xl text-base leading-relaxed text-muted-foreground">
-              Depending on your treatment and quotation, your package may include hospital and operational fees, surgeon and anaesthesia fees, hotel accommodation, transfers, interpreter support and post-operative follow-up. Your written quotation specifies the inclusions, exclusions and payment terms.
-            </p>
-            <p className="mt-3 text-sm font-medium text-muted-foreground">Flights are excluded unless explicitly stated otherwise.</p>
-          </div>
         </div>
       </section>
 

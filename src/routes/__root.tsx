@@ -30,13 +30,13 @@ function NotFoundComponent() {
             to="/"
             className="inline-flex items-center justify-center rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
           >
-            Back to home
+            Home
           </Link>
           <Link
             to="/treatments"
             className="inline-flex items-center justify-center rounded-full border border-border px-5 py-2.5 text-sm font-semibold transition-colors hover:bg-muted"
           >
-            Browse treatments
+            Treatments
           </Link>
         </div>
       </div>
@@ -137,7 +137,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" dir="ltr">
       <head>
         <HeadContent />
       </head>
@@ -154,6 +154,14 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
+      <RootContent />
+    </QueryClientProvider>
+  );
+}
+
+function RootContent() {
+  return (
+    <>
       <a
         href="#main"
         className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-100 focus:rounded-full focus:bg-primary focus:px-4 focus:py-2 focus:text-sm focus:text-primary-foreground"
@@ -162,11 +170,10 @@ function RootComponent() {
       </a>
       <Navbar />
       <main id="main">
-        {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
         <Outlet />
       </main>
       <Footer />
       <Toaster position="top-center" />
-    </QueryClientProvider>
+    </>
   );
 }

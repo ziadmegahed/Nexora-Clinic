@@ -53,7 +53,7 @@ function TreatmentsPage() {
                 value={query}
                 maxLength={60}
                 onChange={(e) => setQuery(e.target.value)}
-                placeholder="Search treatments…"
+                placeholder="Search treatments"
                 className="h-12 rounded-full bg-card pl-11"
               />
             </div>

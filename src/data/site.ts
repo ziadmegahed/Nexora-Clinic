@@ -672,8 +672,8 @@ export const packages = [
 
 export const beforeAfter = [
   { id: 1, category: "Dental Treatments", treatment: "Dental", title: "Hollywood Smile", before: beforeDental, after: afterDental },
-  { id: 2, category: "Aesthetic Operations", treatment: "Tummy Tuck + Liposuction", title: "Male stomach reduction transformation", before: beforetummy1, after: aftertummy1 },
-  { id: 3, category: "Aesthetic Operations", treatment: "BBL", title: "Brazilian Butt Lift transformation", before: beforebbl1, after: afterbbl1 },
+  { id: 2, category: "Obesity Treatments", treatment: "Weight Loss Women", title: "Female weight loss transformation", before: beforelwf4, after: afterlwf4 },
+  { id: 3, category: "Aesthetic Operations", treatment: "BBL", title: "Butt Lift transformation", before: beforebbl1, after: afterbbl1 },
   { id: 4, category: "Aesthetic Operations", treatment: "Breast Lift + Implant", title: "Breast lift transformation", before: beforeBL1, after: afterBL1 },
   { id: 5, category: "Aesthetic Operations", treatment: "Otoplasty", title: "Ear reshaping transformation", before: beforeotoplasty1, after: afterotoplasty1 },
   { id: 6, category: "Aesthetic Operations", treatment: "Facial Rejuvenation", title: "Facial rejuvenation transformation", before: beforefacial1, after: afterfacial1 },
@@ -713,7 +713,7 @@ export const beforeAfter = [
   { id: 40, category: "Obesity Treatments", treatment: "Weight Loss Women", title: "Female weight loss transformation", before: beforelwf1, after: afterlwf1 },
   { id: 41, category: "Obesity Treatments", treatment: "Weight Loss Women", title: "Female weight loss transformation", before: beforelwf2, after: afterlwf2 },
   { id: 42, category: "Obesity Treatments", treatment: "Weight Loss Women", title: "Female weight loss transformation", before: beforelwf3, after: afterlwf3 },
-  { id: 43, category: "Obesity Treatments", treatment: "Weight Loss Women", title: "Female weight loss transformation", before: beforelwf4, after: afterlwf4 },
+  { id: 43, category: "Aesthetic Operations", treatment: "Tummy Tuck + Liposuction", title: "Male stomach reduction transformation", before: beforetummy1, after: aftertummy1 },
 
 
 ];

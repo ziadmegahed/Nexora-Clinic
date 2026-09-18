@@ -26,7 +26,7 @@ export function CtaSection({
           <div className="relative mt-8 flex flex-wrap justify-center gap-3">
             <Button asChild size="lg" variant="secondary" className="rounded-full font-semibold">
               <Link to="/consultation">
-                Get a Free Consultation
+                Free consultation
                 <ArrowRight className="ml-1 h-4 w-4" aria-hidden />
               </Link>
             </Button>

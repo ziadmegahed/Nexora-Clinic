@@ -6,13 +6,13 @@ import { brand } from "@/data/site";
 import { cn } from "@/lib/utils";
 
 const links = [
-  { to: "/", label: "Home" },
-  { to: "/about", label: "About Nexora" },
-  { to: "/treatments", label: "Treatments" },
-  { to: "/doctors", label: "Doctors" },
-  { to: "/before-after", label: "Patient Results" },
-  { to: "/contact", label: "Contact Us" },
-];
+  { to: "/", key: "home" },
+  { to: "/about", key: "about" },
+  { to: "/treatments", key: "treatments" },
+  { to: "/doctors", key: "doctors" },
+  { to: "/before-after", key: "patientResults" },
+  { to: "/contact", key: "contact" },
+] as const;
 
 export function Navbar() {
   const [open, setOpen] = useState(false);
@@ -68,7 +68,17 @@ export function Navbar() {
                         : "text-foreground/75 hover:bg-muted hover:text-primary",
                     )}
                   >
-                    {link.label}
+                    {link.key === "home"
+                      ? "Home"
+                      : link.key === "about"
+                        ? "About Nexora"
+                        : link.key === "treatments"
+                          ? "Treatments"
+                          : link.key === "doctors"
+                            ? "Doctors"
+                            : link.key === "patientResults"
+                              ? "Patient Results"
+                              : "Contact Us"}
                   </Link>
                 </li>
               );
@@ -111,7 +121,17 @@ export function Navbar() {
                     onClick={() => setOpen(false)}
                     className="block rounded-xl px-3 py-3 text-sm font-medium transition-colors hover:bg-muted hover:text-primary"
                   >
-                    {link.label}
+                    {link.key === "home"
+                      ? "Home"
+                      : link.key === "about"
+                        ? "About Nexora"
+                        : link.key === "treatments"
+                          ? "Treatments"
+                          : link.key === "doctors"
+                            ? "Doctors"
+                            : link.key === "patientResults"
+                              ? "Patient Results"
+                              : "Contact Us"}
                   </Link>
                 </li>
               ))}
@@ -123,7 +143,7 @@ export function Navbar() {
                 </Button>
                 <Button asChild variant="outline" className="w-full rounded-full">
                   <Link to="/faq" onClick={() => setOpen(false)}>
-                    Frequently asked questions
+                    FAQ
                   </Link>
                 </Button>
               </li>

@@ -6,8 +6,7 @@ import { PageHero } from "@/components/site/page-hero";
 import { Reveal } from "@/components/site/reveal";
 import { DoctorCard } from "@/components/site/doctor-card";
 import { CtaSection } from "@/components/site/cta-section";
-import { doctors, treatmentCategories } from "@/data/site";
-import { cn } from "@/lib/utils";
+import { doctors } from "@/data/site";
 
 export const Route = createFileRoute("/doctors/")({
   head: () => ({
@@ -25,16 +24,13 @@ export const Route = createFileRoute("/doctors/")({
 
 function DoctorsPage() {
   const [query, setQuery] = useState("");
-  const [specialty, setSpecialty] = useState("All");
 
   const filtered = useMemo(
     () =>
       doctors.filter(
-        (d) =>
-          (specialty === "All" || d.category === specialty) &&
-          (d.name + d.specialty).toLowerCase().includes(query.trim().toLowerCase()),
+        (d) => (d.name + d.specialty).toLowerCase().includes(query.trim().toLowerCase()),
       ),
-    [query, specialty],
+    [query],
   );
 
   return (
@@ -60,25 +56,6 @@ function DoctorsPage() {
               className="h-12 rounded-full bg-card pl-11"
             />
           </div>
-          <div className="mt-5 flex flex-wrap gap-2">
-            {["All", ...treatmentCategories].map((c) => (
-              <button
-                key={c}
-                type="button"
-                onClick={() => setSpecialty(c)}
-                aria-pressed={specialty === c}
-                className={cn(
-                  "rounded-full px-4 py-2 text-sm font-medium transition-colors",
-                  specialty === c
-                    ? "gradient-brand text-primary-foreground"
-                    : "border border-border bg-card text-muted-foreground hover:text-primary",
-                )}
-              >
-                {c}
-              </button>
-            ))}
-          </div>
-
           <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {filtered.map((d, i) => (
               <Reveal key={d.slug} delay={(i % 4) * 70}>

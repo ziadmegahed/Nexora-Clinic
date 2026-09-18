@@ -6,8 +6,7 @@ import { PageHero } from "@/components/site/page-hero";
 import { Reveal } from "@/components/site/reveal";
 import { TreatmentCard } from "@/components/site/treatment-card";
 import { CtaSection } from "@/components/site/cta-section";
-import { treatmentCategories, treatments } from "@/data/site";
-import { cn } from "@/lib/utils";
+import { treatments } from "@/data/site";
 
 export const Route = createFileRoute("/treatments/")({
   head: () => ({
@@ -25,16 +24,13 @@ export const Route = createFileRoute("/treatments/")({
 
 function TreatmentsPage() {
   const [query, setQuery] = useState("");
-  const [category, setCategory] = useState<string>("All");
 
   const filtered = useMemo(
     () =>
       treatments.filter(
-        (t) =>
-          (category === "All" || t.category === category) &&
-          (t.name + t.short).toLowerCase().includes(query.trim().toLowerCase()),
+        (t) => (t.name + t.short).toLowerCase().includes(query.trim().toLowerCase()),
       ),
-    [query, category],
+    [query],
   );
 
   return (
@@ -60,24 +56,6 @@ function TreatmentsPage() {
                 placeholder="Search treatments…"
                 className="h-12 rounded-full bg-card pl-11"
               />
-            </div>
-            <div className="flex flex-wrap gap-2">
-              {["All", ...treatmentCategories].map((c) => (
-                <button
-                  key={c}
-                  type="button"
-                  onClick={() => setCategory(c)}
-                  aria-pressed={category === c}
-                  className={cn(
-                    "rounded-full px-4 py-2 text-sm font-medium transition-colors",
-                    category === c
-                      ? "gradient-brand text-primary-foreground"
-                      : "border border-border bg-card text-muted-foreground hover:text-primary",
-                  )}
-                >
-                  {c}
-                </button>
-              ))}
             </div>
           </div>
 

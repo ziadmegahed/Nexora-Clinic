@@ -16,6 +16,8 @@ import beforeotoplasty1 from "@/assets/beforeotoplasty.jpg";
 import afterotoplasty1 from "@/assets/afterotoplasty.jpg";
 import beforefacial1 from "@/assets/beforefacial1.jpg";
 import afterfacial1 from "@/assets/afterfacial1.jpg";
+import beforebbl1 from "@/assets/beforebbl1.jpg";
+import afterbbl1 from "@/assets/afterbbl1.jpg";
 
 import doc1 from "@/assets/doctor-1.jpg";
 import doc2 from "@/assets/doctor-2.jpg";
@@ -451,7 +453,7 @@ export const doctors: Doctor[] = [
   },
   {
     slug: "akin-zengin",
-    name: "Dr. Öğr. Üyesi Akın Zengin",
+    name: "Assoc. Prof. MD. Akın Zengin",
     specialty: "Ear, Nose, and Throat (ENT)",
     category: "Aesthetics operations",
     years: 15,
@@ -460,7 +462,7 @@ export const doctors: Doctor[] = [
     languages: ["English", "Turkish"],
     photo: doc6,
     hospital: "İstinye Üniversitesi Medical Park Gaziosmanpaşa",
-    bio: "Dr. Öğr. Üyesi Akın Zengin treats patients with ENT and nasal health concerns using modern diagnostics and patient-centred care for long-term comfort and function.",
+    bio: "Assoc. Prof. MD. Akın Zengin treats patients with ENT and nasal health concerns using modern diagnostics and patient-centred care for long-term comfort and function.",
     specialties: ["ENT", "Nasal health", "Rhinology", "Functional treatment"],
     education: ["MD, Gazi University", "ENT Residency, Marmara University", "Advanced Rhinology Certificate, Istanbul"],
     experience: ["ENT Consultant, Medical Park Florya", "1,800+ ENT cases", "Functional ENT specialist"],
@@ -594,7 +596,7 @@ export const packages = [
 export const beforeAfter = [
   { id: 1, category: "Dental Treatments", treatment: "Dental", title: "Hollywood Smile", before: beforeDental, after: afterDental },
   { id: 2, category: "Aesthetic Operations", treatment: "Tummy Tuck + Liposuction", title: "A visible body-contouring transformation", before: beforeLoss, after: afterLoss },
-  { id: 3, category: "Aesthetic Operations", treatment: "BBL", before: beforeLoss, after: afterLoss },
+  { id: 3, category: "Aesthetic Operations", treatment: "BBL", title: "Brazilian Butt Lift transformation", before: beforebbl1, after: afterbbl1 },
   { id: 4, category: "Aesthetic Operations", treatment: "Breast Lift + Implant", title: "Breast lift transformation", before: beforeBL1, after: afterBL1 },
   { id: 5, category: "Aesthetic Operations", treatment: "Otoplasty", title: "Ear reshaping transformation", before: beforeotoplasty1, after: afterotoplasty1 },
   { id: 6, category: "Aesthetic Operations", treatment: "Facial Rejuvenation", title: "Facial rejuvenation transformation", before: beforefacial1, after: afterfacial1 },

@@ -56,7 +56,44 @@ import beforebreastreduction2 from "@/assets/beforebreastreduction2.jpg";
 import afterbreastreduction2 from "@/assets/afterbreastreduction2.jpg";
 import beforebreastreduction3 from "@/assets/beforebreastreduction3.jpg";
 import afterbreastreduction3 from "@/assets/afterbreastreduction3.jpg";
-
+import beforebbl2 from "@/assets/beforebbl2.jpg";
+import afterbbl2 from "@/assets/afterbbl2.jpg";
+import beforebbl3 from "@/assets/beforebbl3.jpg";
+import afterbbl3 from "@/assets/afterbbl3.jpg";
+import beforebbl4 from "@/assets/beforebbl4.jpg";
+import afterbbl4 from "@/assets/afterbbl4.jpg";
+import beforegyn1 from "@/assets/beforegyn1.jpg"
+import aftergyn1 from "@/assets/aftergyn1.jpg"
+import beforegyn2 from "@/assets/beforegyn2.jpg"
+import aftergyn2 from "@/assets/aftergyn2.jpg"
+import beforegyn3 from "@/assets/beforegyn3.jpg"
+import aftergyn3 from "@/assets/aftergyn3.jpg"
+import beforegyn4 from "@/assets/beforegyn4.jpg"
+import aftergyn4 from "@/assets/aftergyn4.jpg"
+import beforelip1 from "@/assets/beforelip1.jpg"
+import afterlip1 from "@/assets/afterlip1.jpg"
+import beforelip2 from "@/assets/beforelip2.jpg"
+import afterlip2 from "@/assets/afterlip2.jpg"
+import beforelip3 from "@/assets/beforelip3.jpg"
+import afterlip3 from "@/assets/afterlip3.jpg"
+import beforelip4 from "@/assets/beforelip4.jpg"
+import afterlip4 from "@/assets/afterlip4.jpg"
+import beforefacialfemale1 from "@/assets/beforefacialfemale1.jpg"
+import afterfacialfemale1 from "@/assets/afterfacialfemale1.jpg"
+import beforefacialfemale2 from "@/assets/beforefacialfemale2.jpg"
+import afterfacialfemale2 from "@/assets/afterfacialfemale2.jpg"
+import beforefacialfemale3 from "@/assets/beforefacialfemale3.jpg"
+import afterfacialfemale3 from "@/assets/afterfacialfemale3.jpg"
+import beforefacialfemale4 from "@/assets/beforefacialfemale4.jpg"
+import afterfacialfemale4 from "@/assets/afterfacialfemale4.jpg"
+import beforelwf1 from "@/assets/beforelwf1.jpg"
+import afterlwf1 from "@/assets/afterlwf1.jpg"
+import beforelwf2 from "@/assets/beforelwf2.jpg"
+import afterlwf2 from "@/assets/afterlwf2.jpg"
+import beforelwf3 from "@/assets/beforelwf3.jpg"
+import afterlwf3 from "@/assets/afterlwf3.jpg"
+import beforelwf4 from "@/assets/beforelwf4.jpg"
+import afterlwf4 from "@/assets/afterlwf4.jpg"
 
 import doc1 from "@/assets/doctor-1.jpg";
 import doc2 from "@/assets/doctor-2.jpg";
@@ -648,16 +685,36 @@ export const beforeAfter = [
   { id: 12, category: "Aesthetic Operations", treatment: "Otoplasty", title: "Ear reshaping transformation", before: beforeotoplasty3, after: afterotoplasty3 },
   { id: 13, category: "Aesthetic Operations", treatment: "Otoplasty", title: "Ear reshaping transformation", before: beforeotoplasty4, after: afterotoplasty4 },
   { id: 14, category: "Aesthetic Operations", treatment: "Otoplasty", title: "Ear reshaping transformation", before: beforeotoplasty5, after: afterotoplasty5 },
-  { id: 15, category: "Aesthetic Operations", treatment: "Facial Rejuvenation", title: "Facial rejuvenation transformation", before: beforefacial2, after: afterfacial2 },
-  { id: 16, category: "Aesthetic Operations", treatment: "Facial Rejuvenation", title: "Facial rejuvenation transformation", before: beforefacial3, after: afterfacial3 },
-  { id: 17, category: "Aesthetic Operations", treatment: "Facial Rejuvenation", title: "Facial rejuvenation transformation", before: beforefacial4, after: afterfacial4 },
-  { id: 18, category: "Aesthetic Operations", treatment: "Facial Rejuvenation", title: "Facial rejuvenation transformation", before: beforefacial5, after: afterfacial5 },
+  { id: 15, category: "Aesthetic Operations", treatment: "Facial Rejuvenation Male", title: "Facial rejuvenation transformation", before: beforefacial2, after: afterfacial2 },
+  { id: 16, category: "Aesthetic Operations", treatment: "Facial Rejuvenation Male", title: "Facial rejuvenation transformation", before: beforefacial3, after: afterfacial3 },
+  { id: 17, category: "Aesthetic Operations", treatment: "Facial Rejuvenation Male", title: "Facial rejuvenation transformation", before: beforefacial4, after: afterfacial4 },
+  { id: 18, category: "Aesthetic Operations", treatment: "Facial Rejuvenation Male", title: "Facial rejuvenation transformation", before: beforefacial5, after: afterfacial5 },
   { id: 19, category: "Aesthetic Operations", treatment: "Tummy Tuck + Liposuction", title: "Male stomach reduction transformation", before: beforetummy2, after: aftertummy2 },
   { id: 20, category: "Aesthetic Operations", treatment: "Breast Augmentation", title: "Breast augmentation transformation", before: beforebreast1, after: afterbreast1 },
   { id: 21, category: "Aesthetic Operations", treatment: "Breast Reduction", title: "Breast reduction transformation", before: beforebreastreduction1, after: afterbreastreduction1 },
   { id: 22, category: "Aesthetic Operations", treatment: "Breast Reduction", title: "Breast reduction transformation", before: beforebreastreduction2, after: afterbreastreduction2 },
   { id: 23, category: "Aesthetic Operations", treatment: "Breast Reduction", title: "Breast reduction transformation", before: beforebreastreduction3, after: afterbreastreduction3 },
   { id: 24, category: "Aesthetic Operations", treatment: "Breast Augmentation", title: "Breast augmentation transformation", before: beforebreast2, after: afterbreast2 },
+  { id: 25, category: "Aesthetic Operations", treatment: "BBL", title: "Butt Lift transformation", before: beforebbl2, after: afterbbl2 },
+  { id: 26, category: "Aesthetic Operations", treatment: "BBL", title: "Butt Lift transformation", before: beforebbl3, after: afterbbl3 },
+  { id: 27, category: "Aesthetic Operations", treatment: "BBL", title: "Butt Lift transformation", before: beforebbl4, after: afterbbl4 },
+  { id: 28, category: "Aesthetic Operations", treatment: "Gynecomastia", title: "Gynecomastia", before: beforegyn1, after: aftergyn1 },
+  { id: 29, category: "Aesthetic Operations", treatment: "Gynecomastia", title: "Gynecomastia", before: beforegyn2, after: aftergyn2 },
+  { id: 30, category: "Aesthetic Operations", treatment: "Gynecomastia", title: "Gynecomastia", before: beforegyn3, after: aftergyn3 },
+  { id: 31, category: "Aesthetic Operations", treatment: "Gynecomastia", title: "Gynecomastia", before: beforegyn4, after: aftergyn4 },
+  { id: 32, category: "Aesthetic Operations", treatment: "Liposuction", title: "Liposuction", before: beforelip1, after: afterlip1 },
+  { id: 33, category: "Aesthetic Operations", treatment: "Liposuction", title: "Liposuction", before: beforelip2, after: afterlip2 },
+  { id: 34, category: "Aesthetic Operations", treatment: "Liposuction", title: "Liposuction", before: beforelip3, after: afterlip3 },
+  { id: 35, category: "Aesthetic Operations", treatment: "Liposuction", title: "Liposuction", before: beforelip4, after: afterlip4 },
+  { id: 36, category: "Aesthetic Operations", treatment: "Facial Rejuvenation Female", title: "Facial rejuvenation transformation", before: beforefacialfemale2, after: afterfacialfemale2 },
+  { id: 37, category: "Aesthetic Operations", treatment: "Facial Rejuvenation Female", title: "Facial rejuvenation transformation", before: beforefacialfemale3, after: afterfacialfemale3 },
+  { id: 38, category: "Aesthetic Operations", treatment: "Facial Rejuvenation Female", title: "Facial rejuvenation transformation", before: beforefacialfemale4, after: afterfacialfemale4 },
+  { id: 39, category: "Aesthetic Operations", treatment: "Facial Rejuvenation Female", title: "Facial rejuvenation transformation", before: beforefacialfemale1, after: afterfacialfemale1 },
+  { id: 40, category: "Obesity Treatments", treatment: "Weight Loss Women", title: "Female weight loss transformation", before: beforelwf1, after: afterlwf1 },
+  { id: 41, category: "Obesity Treatments", treatment: "Weight Loss Women", title: "Female weight loss transformation", before: beforelwf2, after: afterlwf2 },
+  { id: 42, category: "Obesity Treatments", treatment: "Weight Loss Women", title: "Female weight loss transformation", before: beforelwf3, after: afterlwf3 },
+  { id: 43, category: "Obesity Treatments", treatment: "Weight Loss Women", title: "Female weight loss transformation", before: beforelwf4, after: afterlwf4 },
+
 
 ];
 
@@ -676,13 +733,15 @@ export const beforeAfterTreatments = {
     "Breast Lift + Implant",
     "Breast Reduction",
     "Tummy Tuck + Liposuction",
+    "Liposuction",
     "BBL",
-    "Facial Rejuvenation",
+    "Facial Rejuvenation Female",
+    "Facial Rejuvenation Male",
     "Otoplasty",
     "Gynecomastia",
     "Arm Lift",
   ],
-  "Obesity Treatments": ["Weight Loss"],
+  "Obesity Treatments": ["Weight Loss Women", "Weight Loss Men"],
   "Dental Treatments": ["Dental"],
   "Check-Ups": [],
 } as const;

@@ -25,9 +25,9 @@ export const Route = createFileRoute("/before-after")({
 function BeforeAfterPage() {
   const [filter, setFilter] = useState<string>(beforeAfterCategories[0]);
   const [topic, setTopic] = useState<string>(beforeAfterTreatments["Aesthetic Operations"][0]);
-  const isAestheticOperations = filter === "Aesthetic Operations";
+  const hasTreatmentFilter = filter === "Aesthetic Operations" || filter === "Obesity Treatments";
   const items = beforeAfter.filter(
-    (item) => item.category === filter && (!isAestheticOperations || item.treatment === topic),
+    (item) => item.category === filter && (!hasTreatmentFilter || item.treatment === topic),
   );
 
   return (
@@ -48,8 +48,8 @@ function BeforeAfterPage() {
                 type="button"
                 onClick={() => {
                   setFilter(category);
-                  if (category === "Aesthetic Operations") {
-                    setTopic(beforeAfterTreatments["Aesthetic Operations"][0]);
+                  if (category === "Aesthetic Operations" || category === "Obesity Treatments") {
+                    setTopic(beforeAfterTreatments[category][0]);
                   }
                 }}
                 aria-pressed={filter === category}
@@ -74,10 +74,10 @@ function BeforeAfterPage() {
                     key={treatment}
                     type="button"
                     onClick={() => setTopic(treatment)}
-                    aria-pressed={isAestheticOperations && topic === treatment}
+                    aria-pressed={hasTreatmentFilter && topic === treatment}
                     className={cn(
                       "rounded-full px-3 py-1.5 text-sm transition-colors",
-                      isAestheticOperations && topic === treatment
+                      hasTreatmentFilter && topic === treatment
                         ? "gradient-brand text-primary-foreground"
                         : "border border-border bg-card text-muted-foreground hover:text-primary",
                     )}

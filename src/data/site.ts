@@ -18,6 +18,33 @@ import beforefacial1 from "@/assets/beforefacial1.jpg";
 import afterfacial1 from "@/assets/afterfacial1.jpg";
 import beforebbl1 from "@/assets/beforebbl1.jpg";
 import afterbbl1 from "@/assets/afterbbl1.jpg";
+import beforetummy1 from "@/assets/beforetummy1.jpg";
+import aftertummy1 from "@/assets/aftertummy1.jpg";
+import beforearm2 from "@/assets/beforearm2.jpg";
+import afterarm2 from "@/assets/afterarm2.jpg";
+import beforearm3 from "@/assets/beforearm3.jpg";
+import afterarm3 from "@/assets/afterarm3.jpg";
+import beforearm4 from "@/assets/beforearm4.jpg";
+import afterarm4 from "@/assets/afterarm4.jpg";
+import beforearm1 from "@/assets/beforearm1.jpg";
+import afterarm1 from "@/assets/afterarm1.jpg";
+import beforeotoplasty2 from "@/assets/beforeotoplasty2.jpg";
+import afterotoplasty2 from "@/assets/afterotoplasty2.jpg";
+import beforeotoplasty3 from "@/assets/beforeotoplasty3.jpg";
+import afterotoplasty3 from "@/assets/afterotoplasty3.jpg";
+import beforeotoplasty4 from "@/assets/beforeotoplasty4.jpg";
+import afterotoplasty4 from "@/assets/afterotoplasty4.jpg";
+import beforeotoplasty5 from "@/assets/beforeotoplasty5.jpg";
+import afterotoplasty5 from "@/assets/afterotoplasty5.jpg";
+import beforefacial2 from "@/assets/beforefacial2.jpg";
+import afterfacial2 from "@/assets/afterfacial2.jpg";
+import beforefacial3 from "@/assets/beforefacial3.jpg";
+import afterfacial3 from "@/assets/afterfacial3.jpg";
+import beforefacial4 from "@/assets/beforefacial4.jpg";
+import afterfacial4 from "@/assets/afterfacial4.jpg";
+import beforefacial5 from "@/assets/beforefacial5.jpg";
+import afterfacial5 from "@/assets/afterfacial5.jpg";
+
 
 import doc1 from "@/assets/doctor-1.jpg";
 import doc2 from "@/assets/doctor-2.jpg";
@@ -25,6 +52,7 @@ import doc3 from "@/assets/doctor-3.jpg";
 import doc4 from "@/assets/doctor-4.jpg";
 import doc5 from "@/assets/doctor-5.jpg";
 import doc6 from "@/assets/doctor-6.jpg";
+
 
 import baHairBefore from "@/assets/ba-hair-before.jpg";
 import baHairAfter from "@/assets/ba-hair-after.jpg";
@@ -595,11 +623,23 @@ export const packages = [
 
 export const beforeAfter = [
   { id: 1, category: "Dental Treatments", treatment: "Dental", title: "Hollywood Smile", before: beforeDental, after: afterDental },
-  { id: 2, category: "Aesthetic Operations", treatment: "Tummy Tuck + Liposuction", title: "A visible body-contouring transformation", before: beforeLoss, after: afterLoss },
+  { id: 2, category: "Aesthetic Operations", treatment: "Tummy Tuck + Liposuction", title: "Male stomach reduction transformation", before: beforetummy1, after: aftertummy1 },
   { id: 3, category: "Aesthetic Operations", treatment: "BBL", title: "Brazilian Butt Lift transformation", before: beforebbl1, after: afterbbl1 },
   { id: 4, category: "Aesthetic Operations", treatment: "Breast Lift + Implant", title: "Breast lift transformation", before: beforeBL1, after: afterBL1 },
   { id: 5, category: "Aesthetic Operations", treatment: "Otoplasty", title: "Ear reshaping transformation", before: beforeotoplasty1, after: afterotoplasty1 },
   { id: 6, category: "Aesthetic Operations", treatment: "Facial Rejuvenation", title: "Facial rejuvenation transformation", before: beforefacial1, after: afterfacial1 },
+  { id: 7, category: "Aesthetic Operations", treatment: "Arm Lift", title: "Arm lift transformation", before: beforearm2, after: afterarm2 },
+  { id: 8, category: "Aesthetic Operations", treatment: "Arm Lift", title: "Arm lift transformation", before: beforearm3, after: afterarm3 },
+  { id: 9, category: "Aesthetic Operations", treatment: "Arm Lift", title: "Arm lift transformation", before: beforearm4, after: afterarm4 },
+  { id: 10, category: "Aesthetic Operations", treatment: "Arm Lift", title: "Arm lift transformation", before: beforearm1, after: afterarm1 },
+  { id: 11, category: "Aesthetic Operations", treatment: "Otoplasty", title: "Ear reshaping transformation", before: beforeotoplasty2, after: afterotoplasty2 },
+  { id: 12, category: "Aesthetic Operations", treatment: "Otoplasty", title: "Ear reshaping transformation", before: beforeotoplasty3, after: afterotoplasty3 },
+  { id: 13, category: "Aesthetic Operations", treatment: "Otoplasty", title: "Ear reshaping transformation", before: beforeotoplasty4, after: afterotoplasty4 },
+  { id: 14, category: "Aesthetic Operations", treatment: "Otoplasty", title: "Ear reshaping transformation", before: beforeotoplasty5, after: afterotoplasty5 },
+  { id: 15, category: "Aesthetic Operations", treatment: "Facial Rejuvenation", title: "Facial rejuvenation transformation", before: beforefacial2, after: afterfacial2 },
+  { id: 16, category: "Aesthetic Operations", treatment: "Facial Rejuvenation", title: "Facial rejuvenation transformation", before: beforefacial3, after: afterfacial3 },
+  { id: 17, category: "Aesthetic Operations", treatment: "Facial Rejuvenation", title: "Facial rejuvenation transformation", before: beforefacial4, after: afterfacial4 },
+  { id: 18, category: "Aesthetic Operations", treatment: "Facial Rejuvenation", title: "Facial rejuvenation transformation", before: beforefacial5, after: afterfacial5 },
 ];
 
 export const beforeAfterCategories = [

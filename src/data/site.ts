@@ -44,6 +44,18 @@ import beforefacial4 from "@/assets/beforefacial4.jpg";
 import afterfacial4 from "@/assets/afterfacial4.jpg";
 import beforefacial5 from "@/assets/beforefacial5.jpg";
 import afterfacial5 from "@/assets/afterfacial5.jpg";
+import beforetummy2 from "@/assets/beforetummy2.jpg";
+import aftertummy2 from "@/assets/aftertummy2.jpg";
+import beforebreast1 from "@/assets/beforebreast1.jpg";
+import afterbreast1 from "@/assets/afterbreast1.jpg";
+import beforebreast2 from "@/assets/beforebreast2.jpg";
+import afterbreast2 from "@/assets/afterbreast2.jpg";
+import beforebreastreduction1 from "@/assets/beforebreastreduction1.jpg";
+import afterbreastreduction1 from "@/assets/afterbreastreduction1.jpg";
+import beforebreastreduction2 from "@/assets/beforebreastreduction2.jpg";
+import afterbreastreduction2 from "@/assets/afterbreastreduction2.jpg";
+import beforebreastreduction3 from "@/assets/beforebreastreduction3.jpg";
+import afterbreastreduction3 from "@/assets/afterbreastreduction3.jpg";
 
 
 import doc1 from "@/assets/doctor-1.jpg";
@@ -640,6 +652,13 @@ export const beforeAfter = [
   { id: 16, category: "Aesthetic Operations", treatment: "Facial Rejuvenation", title: "Facial rejuvenation transformation", before: beforefacial3, after: afterfacial3 },
   { id: 17, category: "Aesthetic Operations", treatment: "Facial Rejuvenation", title: "Facial rejuvenation transformation", before: beforefacial4, after: afterfacial4 },
   { id: 18, category: "Aesthetic Operations", treatment: "Facial Rejuvenation", title: "Facial rejuvenation transformation", before: beforefacial5, after: afterfacial5 },
+  { id: 19, category: "Aesthetic Operations", treatment: "Tummy Tuck + Liposuction", title: "Male stomach reduction transformation", before: beforetummy2, after: aftertummy2 },
+  { id: 20, category: "Aesthetic Operations", treatment: "Breast Augmentation", title: "Breast augmentation transformation", before: beforebreast1, after: afterbreast1 },
+  { id: 21, category: "Aesthetic Operations", treatment: "Breast Reduction", title: "Breast reduction transformation", before: beforebreastreduction1, after: afterbreastreduction1 },
+  { id: 22, category: "Aesthetic Operations", treatment: "Breast Reduction", title: "Breast reduction transformation", before: beforebreastreduction2, after: afterbreastreduction2 },
+  { id: 23, category: "Aesthetic Operations", treatment: "Breast Reduction", title: "Breast reduction transformation", before: beforebreastreduction3, after: afterbreastreduction3 },
+  { id: 24, category: "Aesthetic Operations", treatment: "Breast Augmentation", title: "Breast augmentation transformation", before: beforebreast2, after: afterbreast2 },
+
 ];
 
 export const beforeAfterCategories = [
